@@ -15,7 +15,7 @@ end
 
 # gem 'skylight'
 gem 'haml'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sass-rails', '~> 5.0'
 # gem 'mini_racer'
 # gem 'autoprefixer-rails'
