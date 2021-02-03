@@ -1,0 +1,70 @@
+.row-fluid
+  #homeCarousel.carousel.slide
+    %ol.carousel-indicators
+      %li.active{"data-slide-to" => "0", "data-target" => "#homeCarousel"}
+      %li{"data-slide-to" => "1", "data-target" => "#homeCarousel"}
+      %li{"data-slide-to" => "2", "data-target" => "#homeCarousel"}
+
+    .carousel-inner
+      .active.item
+
+        = link_to image_tag("BorrowedUofMPics/League_Fountain.jpg", :alt => "Michigan League Fountain", :title => "Michigan League Fountain" ), root_path
+        -# = link_to image_tag("BorrowedUofMPics/LawQuad.jpg", :alt => "Law Quad",  :title => "LawQuad"), root_path
+      .item
+        = link_to image_tag("new_home/clements2b.jpg", :alt => "Clements Library",  :title => "Clements Library"), root_path
+
+        -#= link_to image_tag("BorrowedUofMPics/Cube_Fall.jpg", :alt => "Cube", :title => "Cube"), root_path
+      .item
+        = link_to image_tag("new_home/RackhamB.jpg", :alt => "Rackham",  :title => "Rackham Graduate School"), root_path
+        -#= link_to image_tag("new_home/clements.jpg", :alt => "Rackham",  :title => "LawQuad"), root_path
+    -# Carousel nav
+    %a{:class => "left carousel-control", :href => "#homeCarousel", 'data-slide' => "prev" }
+      %span.fa.fa-arrow-left
+    %a{:class => "right carousel-control", :href => "#homeCarousel", 'data-slide' => "next" }
+      %span.fa.fa-arrow-right
+.row
+  #main_text
+    %br
+    %section.covid-19.center-block.remote-learning-adjustments
+      %h1 COVID-19 Information
+      %h4.center-block
+        The photographs on this website were taken before the Covid-19 pandemic.  They are no longer accurate.  The text describing the capacity and the seating in the classroom is accurate.
+      %hr
+      %p
+        Check the
+        = link_to " University of Michigan COVID-19 information ", "https://publicaffairs.vpcomm.umich.edu/2019-novel-coronavirus-covid-19/", target: "_blank"
+        page for COVID-19 related updates on U-M classes, travel, study abroad and events.
+      %p
+        For information on teaching remotely, LSA Tech Services has put together a nice resource.
+        = link_to "LSATS - Teaching Remotely", "https://lsa.umich.edu/technology-services/services/learning-teaching-consulting/teaching-strategies/remote-teaching.html", target: "_blank"
+        Additionally, here is an email address for faculty to ask questions about the use of technology for Remote Teaching:
+        = mail_to('LSATeachingRemotelyQandA@umich.edu', nil, :encode => :javascript)
+
+      %p
+        Students seeking study spaces will find options available throughout the University at
+        = link_to "studyspaces.umich.edu", "https://studyspaces.umich.edu", target: "_blank"
+        A partial list of study spaces available in LSA buildings will be found at
+        = link_to "lsa.umich.edu/technology-services/lsa-study-spaces.html", "https://lsa.umich.edu/technology-services/lsa-study-spaces.html", target: "_blank"
+
+    %br
+    %p
+      As of fall 2012, the majority of rooms in this database are within the College of LSA. They are available to the general university for class and event scheduling. As a general rule, the registrar's office manages the schedule for university classrooms. Schools, colleges, and departments may have their own procedures. Faculty are encouraged to work through their departmental administrative staff to reserve rooms. Registered student organizations should reserve rooms through Student Organization Accounts Service (SOAS). More information is available in the guidebook for student organizations.
+
+    // %section.legacy-crdb.center-block
+    //   %h1 NEW! MiLocations Classroom Database
+    //   %h4 Coming Soon!
+    //   %p
+    //     Welcome to the new MiLocations Classroom Database. This will be the replacement of the
+    //     = link_to "The NEW Classroom Databse system.", "https://rooms.umich.edu", target: '_blank'
+    //     During the rollout of the new Classroom Database additional features and functionality will be added. The legacy CRDB will be available during this period to ensure that existing functionality is available during the roll out and until we are confident all existing functionality has been transferred to the new application.
+  = render 'home_search_by_department_links'
+  #home_search_all
+    .row
+      %ul
+        %li.col-xs-11
+          = link_to 'Search All Classrooms', classrooms_path, :class => 'button'
+-# Carosel
+:javascript
+  $('.carousel').carousel({
+    interval: 12000
+  })

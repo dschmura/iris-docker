@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angell Complex Second Floor</title>
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+padding:2% 0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.9);
+width:45%;
+height:auto;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+.navlabel{
+ color:black;
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:130%;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  button{font-size:small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:150%;}
+     #nav{width:60%}
+  }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:225px;}
+    #fpbox{width:140%;}
+  }
+}
+
+/* demensions and positions for all the links */
+
+a.ah2024{height:5.5%; width:8%; bottom:16.7%; left:45.5%;}
+a.ah2163{height:5.5%; width:8%; bottom:30.1%; left:12.6%;}
+a.ah2271{height:5.5%; width:10%; top:0%; left:12.5%;}
+a.mh2306{height:6%; width:12%; top:17.2%; left:31.9%;}
+a.mh2325{height:6%; width:8%; top:9.5%; left:39.8%;}
+a.mh2330{height:6%; width:8%; top:17.2%; left:44.4%;}
+a.mh2333{height:6%; width:6%; top:9.5%; left:48.2%;}
+a.mh2336{height:6%; width:8%; top:17.2%; right:38.3%;}
+a.mh2347{height:6%; width:7%; top:9.5%; right:37.8%;}
+a.mh2353{height:6%; width:8%; top:9.5%; right:29.7%;}
+a.mh2401{height:3.2%; width:7.5%; top:5.1%; right:11.8%;}
+a.mh2407{height:6%; width:7.5%; top:8.7%; right:11.8%;}
+a.mh2427{height:6%; width:7.5%; top:14.9%; right:11.8%;}
+a.mh2436{height:6%; width:7.5%; top:24%; right:22%;}
+a.mh2437{height:6%; width:7.5%; top:21%; right:11.8%;}
+a.mh2448{height:3.1%; width:7.5%; top:30.1%; right:22%;}
+a.mh2449{height:6%; width:7.5%; top:27.1%; right:11.8%;}
+a.mh2454{height:3.1%; width:7.5%; top:33.2%; right:22%;}
+a.mh2455{height:6%; width:7.5%; top:33.3%; right:11.8%;}
+a.mh2462{height:6%; width:7.5%; top:36.4%; right:22%;}
+a.mh2469{height:3%; width:7.5%; top:39.5%; right:11.8%;}
+a.mh2475{height:3%; width:7.5%; top:42.6%; right:11.8%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+
+<div class="page">
+<header>
+<h1>Angell Complex Second Floor</h1>
+</header>
+
+<nav>
+<button type="button" id="navButt" aria-expanded="false" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
+
+<ul id="nav" style="display:none;">
+<li class="text">
+<a href="ahg.html" aria-label="ground floor, Angell Hall">
+Ground Floor Angell</a>
+</li>
+<li class="text">
+<a href="ah1.html" aria-label="first floor, Angell Hall">
+First Floor Angell</a>
+</li>
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the second floor of Angell.">This is the second floor</a>
+</li>
+<li class="text">
+<a href="ah3.html" aria-label="third floor, Angell Hall">
+Third Floor Angell</a>
+</li>
+<li class="text">
+<a href="ah4.html" aria-label="fourth floor, Angell Hall">
+Fourth Floor Angell</a>
+</li>
+<li class="text">
+<a href="ah5.html" aria-label="fifth floor, Angell Hall">
+Fifth Floor Angell</a>
+</li>
+<hr aria-hidden="true">
+<li class="text">
+<a href="mh2.html" aria-label="Mason Hall, second floor">
+Mason Second Floor</a>
+</li>
+<li class="text">
+<a href="hh2.html" aria-label="Haven Hall, second floor">
+Haven Second Floor</a>
+</li>
+<hr aria-hidden="true">
+<li class="text">
+<a href="index.html" aria-label="central campus map">
+Central Campus</a>
+</li>
+<li class="text">
+<a href="/" aria-label="M Classrooms Home Page">
+MClassrooms Home</a>
+</li>
+</ul>
+</nav>
+
+<!-- floor plan -->
+<main>
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="ahplex2.jpg" alt="second floor of the angell mason haven hall complex, twenty two classroom links on this drawing" />
+
+<!-- links to classroom data  -->
+
+<a class="rm ah2024" href="../classrooms/AH2024" aria-label="room two zero two four tisch hall information"></a>
+<a class="rm ah2163" href="../classrooms/AH2163" aria-label="room two one six three angell hall information"></a>
+<a class="rm ah2271" href="../classrooms/AH2271" aria-label="room two two seven one angell hall information"></a>
+<a class="rm mh2306" href="../classrooms/MH2306" aria-label="room two three zero six mason hall information"></a>
+<a class="rm mh2325" href="../classrooms/MH2325" aria-label="room two three two five mason hall information"></a>
+<a class="rm mh2330" href="../classrooms/MH2330" aria-label="room two three three zero mason hall information"></a>
+<a class="rm mh2333" href="../classrooms/MH2333" aria-label="room two three three three mason hall information"></a>
+<a class="rm mh2336" href="../classrooms/MH2336" aria-label="room two three three six mason hall information"></a>
+<a class="rm mh2347" href="../classrooms/MH2347" aria-label="room two three four seven mason hall information"></a>
+<a class="rm mh2353" href="../classrooms/MH2353" aria-label="room two three five three mason hall information"></a>
+<a class="rm mh2401" href="../classrooms/MH2401" aria-label="room two four zero one mason hall information"></a>
+<a class="rm mh2407" href="../classrooms/MH2407" aria-label="room two four zero seven mason hall information"></a>
+<a class="rm mh2427" href="../classrooms/MH2427" aria-label="room two four two seven mason hall information"></a>
+<a class="rm mh2436" href="../classrooms/MH2436" aria-label="room two four three six mason hall information"></a>
+<a class="rm mh2437" href="../classrooms/MH2437" aria-label="room two four three seven mason hall information"></a>
+<a class="rm mh2448" href="../classrooms/MH2448" aria-label="room two four four eight mason hall information"></a>
+<a class="rm mh2449" href="../classrooms/MH2449" aria-label="room two four four nine mason hall information"></a>
+<a class="rm mh2454" href="../classrooms/MH2454" aria-label="room two four five four mason hall information"></a>
+<a class="rm mh2455" href="../classrooms/MH2455" aria-label="room two four five five mason hall information"></a>
+<a class="rm mh2462" href="../classrooms/MH2462" aria-label="room two four six two mason hall information"></a>
+<a class="rm mh2469" href="../classrooms/MH2469" aria-label="room two four six nine mason hall information"></a>
+<a class="rm mh2475" href="../classrooms/MH2475" aria-label="room two four seven five mason hall information"></a>
+
+</div>
+</div>
+</main>
+</div>
+
+</body>
+</html>
+
+<script>
+
+window.onload=function scrolldown() {
+    var elmnt = document.getElementById("scrollbox");
+    elmnt.scrollLeft = 0;
+    elmnt.scrollTop = 1000;
+}
+
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
+
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+   x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+
+</script>
+

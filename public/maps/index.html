@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<head>
+<title>Central Campus Map</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.8);
+width:45%;
+height:auto;
+display:none;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+button.closenav{
+ display:none;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+ vertical-align:bottom;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding-bottom:1%;
+}
+.navlabel{
+ color:black;
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ font-style:oblique;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+#fpaudio{
+position:absolute;
+top:10%;
+left:10%;
+width:60%;
+height:60%;
+overflow:hidden;
+z-index:-10;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .biga{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:100%;
+}
+.biga{
+ display:inline-block;
+ font-size:x-large;
+ font-weight:bold;
+ position:absolute;
+ right:0%;
+ top:0%;
+ margin:0%;
+ padding-bottom:.3%;
+ vertical-align:bottom;
+ text-align:right;
+ width:45%;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  .biga{font-size:small;}
+  .navlabel{font-size:x-small;}
+  button{font-size:small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:150%;}
+     #nav{width:60%;}
+  }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:225px;}
+    #fpbox{width:140%;}
+  }
+}
+
+
+
+/* padding and positions for all the links */
+
+a.agrmu{height:6%; width:13%; top:30.5%; right:6.5%;}
+
+a.ah{height:7%; width:9%; top:49%; left:21%;}
+
+a.bsb{height:6%; width:18%; top:22.5%; right:4%;}
+
+a.chem{height:8.5%; width:22%; top:31%; left:46%}
+
+a.eh{height:9.2%; width:11.5%; bottom:35.5%; right:15%;}
+
+a.eq{height:15%; width:12%; bottom:4%; right:13.5%;}
+
+a.hh{height:7.5%; width:7%; top:48.5%; left:31.6%;}
+
+a.lorch{height:7%; width:11.5%; bottom:15.5%; left:45%;}
+
+a.lsa{height:9%; width:9%; bottom:40%; left:3.5%;}
+
+a.mh{height:5.5%; width:9%; top:42%; left:25.7%;}
+
+a.mlb{height:8%; width:8%; top:13%; left:30%;}
+
+a.nq{height:8%; width:15%; top:4%; left:14.5%;}
+
+a.ns{height:10%; width:14%; top:31%; left:28.5%;}
+
+a.nub{height:10%; width:9.5%; top:36.2%; right:17.5%;}
+
+a.rand{height:8%; width:11%; top:45%; right:30%;}
+
+a.seb{height:10%; width:11%; bottom:16%; right:28.5%;}
+
+a.stb{height:8%; width:8%; top:13%; left:20%;}
+
+a.tap{height:7%; width:8%; bottom:34%; left:30%;}
+
+a.usb{height:8%; width:15%; top:13.3%; right:8.8%;}
+
+a.weis{height:7.5%; width:10.5%; bottom:45%; right:16%;}
+
+a.wh{height:10.5%; width:9%; bottom:35%; right:30%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+
+<div class="page">
+<header>
+<h1>Central Campus</h1>
+</header>
+<nav>
+<p class="biga">
+<a href="/" aria-label="to the M classrooms home page">MClassrooms Home</a>
+</p>
+</nav>
+<!-- floor plan -->
+<main>
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="diag.jpg" alt="a drawing of central campus, nineteen building links on this drawing" />
+
+<!-- links to buildings  -->
+
+<a class="bld ah" href="ahg.html" title="to Angell and Tisch, ground floor" aria-label="to Angell and Tisch Halls, ground floor">
+</a>
+
+<a class="bld bsb" href="bsb1.html" title="to Biological Science Building, first floor" aria-label="to the Biological Science Building, first floor">
+</a>
+
+<a class="bld chem" href="chem1.html" title="to Chemistry, first floor" aria-label="to Chemistry, first floor">
+</a>
+
+<a class="bld eh" href="eh1.html" title="to East Hall, first floor" aria-label="to East Hall, first floor">
+</a>
+
+<a class="bld eq" href="eq1.html" title="to East Quad, first floor" aria-label="to East Quad, first floor">
+</a>
+
+<a class="bld hh" href="hhg.html" title="to Haven Hall, ground floor" aria-label="to Haven Hall, ground floor">
+</a>
+
+<!--under renovation
+<a class="bld ns" href="ns1.html" title="to School of Kinesiology Building, first floor" aria-label="to School of Kinesiology Building, first floor">
+</a>
+-->
+
+<a class="bld lsa" href="lsa1.html" title="to the LSA Building, first floor" aria-label="to the Literature Science and the Arts building, first floor">
+</a>
+
+<a class="bld lorch" href="lorch1.html" title="to Lorch Hall, first floor" aria-label="to Lorch Hall, first floor">
+</a>
+
+<a class="bld mh" href="mhg.html" title="to Mason Hall, ground floor" aria-label="to Mason Hall, ground floor">
+</a>
+
+<a class="bld mlb" href="mlb1.html" title="to the MLB, first floor" aria-label="to the modern language building, first floor">
+</a>
+
+<a class="bld nq" href="nq2.html" title="to North Quad 2nd floor, which is ground" aria-label="to North Quad second floor, which is the ground floor">
+</a>
+
+<a class="bld nub" href="nub1.html" title="to North University Building, first floor" aria-label="to the North University Building, first floor">
+</a>
+
+<a class="bld rand" href="rand4.html" title="to Randall Lab, fourth floor" aria-label="to Randall Lab, fourth floor">
+</a>
+
+<!-- tranferred to central admin. save for new classroom building planned for fall 2021
+<a class="bld agrmu" href="agrmu1.html" title="to Ruthven, ground floor" aria-label="to Rooth ven Museum, ground floor">
+</a
+-->
+
+<a class="bld seb" href="seb1.html" title="to the School of Education, first floor" aria-label="to the School of Education, first floor">
+</a>
+
+<a class="bld stb" href="stb1.html" title="to the South Thayer Building, first floor" aria-label="to the South Thayer Building, first floor">
+</a>
+
+<a class="bld tap" href="tap1.html" title="to Tappan Hall, first floor" aria-label="to Tappan Hall, first floor">
+</a>
+
+<a class="bld usb" href="usb1.html" title="to the USB, plaza level" aria-label="to the undergraduate science building plaza level, which is the first floor">
+</a>
+
+<a class="bld weis" href="weis1.html" title="to weiser Hall, first floor" aria-label="to weiser hall, first floor">
+</a>
+
+<a class="bld wh" href="wh1.html" title="to West Hall, first floor" aria-label="to West Hall, first floor">
+</a>
+
+</div>
+</div>
+</main>
+</div>
+
+</body>
+</html>

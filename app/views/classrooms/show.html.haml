@@ -1,0 +1,506 @@
+:javascript
+  var hash = window.location.hash,
+  hashPart=hash.split('!')[1],
+  activeTab=$('ul.nav a[href="#' + hashPart + '"]');
+  activeTab && activeTab.tab('show');
+
+  $('.nav-tabs a').click(function (e) {
+      $(this).tab('show');
+      window.location.hash = '#!'+$(this).attr('href').split('#')[1];
+  });
+
+.row.classroom_top
+  .col-md-2.col-sm-2.col-xs-1
+    = render partial: 'building_float'
+  .tab-content.col-md-10.col-sm-10.col-xs.11
+    .tab-pane.active#picture
+      %a{ "data-original-title" => "Load the image for this room.", "data-placement" => "bottom", href: classroom_image, target: '_blank', rel: "tooltip", style: "color: black;"}
+        %div{ style: %(background:url("#{classroom_image}") no-repeat center; min-height: 300px;) }
+
+
+    .tab-pane#pano
+      %h4#missing_pano
+        %i.fa.fa-spinner.fa.fa-spin
+        Attempting to load panorama
+
+    .tab-pane#map
+      <div id="map_canvas" > </div>
+
+    .tab-pane#contact_me
+      = render partial: 'contact_sheet'
+
+.tabbable#classroomTabs
+  %ul.nav.nav-tabs#myTab
+    %li.active
+      %a{ "data-toggle" => 'tab', :href => '#picture', :id => "#picturetab"}
+        Picture
+    %li
+      %a{ "data-toggle" => 'tab', :href => '#pano', :id => "#panotab"}
+        Panorama
+    %li
+      %a{ "data-toggle" => 'tab', :href => '#map', :id => "#maptab"}
+        Map
+    %li
+      %a{ "data-toggle" => 'tab', :href => '#contact_me', :id => "#contacttab"}
+        Contact
+
+#room_number
+  %h1
+    = @classroom.location.name
+
+= render 'quick_links_2'
+%br
+
+.row
+  .col-md-10.col-md-offset-1
+
+    .remote-learning-adjustments.bg-danger{style: "padding: 1rem"}
+      %h2.center-block.text-danger COVID-19 Information
+      %p
+        Check the
+        = link_to " University of Michigan COVID-19 information ", "https://publicaffairs.vpcomm.umich.edu/2019-novel-coronavirus-covid-19/", target: "_blank"
+        page for COVID-19 related updates on U-M classes, travel, study abroad and events.
+      %p
+        For information on teaching remotely, LSA Tech Services has put together a nice resource.
+        = link_to "LSATS - Teaching Remotely", "https://lsa.umich.edu/technology-services/services/learning-teaching-consulting/teaching-strategies/remote-teaching.html", target: "_blank"
+        Additionally, here is an email address for faculty to ask questions about the use of technology for Remote Teaching:
+        = mail_to('LSATeachingRemotelyQandA@umich.edu', nil, :encode => :javascript)
+
+- if @classroom.DEPT_GRP == "COLLEGE_OF_LSA"
+
+  .col-md-10.col-md-offset-1{style: "margin-top: 1rem; margin-bottom: 1rem;"}
+    .remote-learning-adjustments.bg-info{style: "padding: 1rem"}
+      %h3.center-block.text-info LSA Step-by-Step Hybrid Teaching Guides
+      %p
+        Guides and instructional videos with step-by-step instructions on using LSA classroom technology for hybrid instruction.
+        = link_to "LSA Step-by-Step Hybrid Teaching Guide", "https://lsa.umich.edu/technology-services/services/learning-teaching-consulting/teaching-strategies/remote-teaching/teaching-remotely--instructor-resources/lsa-step-by-step-hybrid-teaching-guide.html", target: "_blank"
+- if technician_required
+
+  .row
+    .col-md-10.col-md-offset-1
+      .well.well-small
+        #technician_required
+          = technician_required
+
+.row
+  #attributes
+    .col-md-5.col-md-offset-1
+
+      %h3 Room Design
+
+      %hr
+      %i.fa.fa-group{"aria-hidden" => "true"}
+      %b
+      %a{ "data-original-title" => "Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces.", "data-placement" => "right", :href => "#", :rel => "tooltip"} Student Capacity:
+      = @classroom.student_capacity
+      %br
+
+      %i.fa.fa-lightbulb-o{"aria-hidden" => "true"}
+      %a{ "data-original-title" => "Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.light_control) } Light Control:
+
+      - if @classroom.light_control
+        .fa.fa-check
+
+      %br
+      %hr
+      %i.fa.fa-align-center{"aria-hidden" => "true"}
+      %a{ "data-original-title" => "Seating Arrangement for the room", "data-placement" => "right", href: "./#{@classroom.facility_code_heprod}.pdf", rel: "tooltip", target: "_blank"}
+        %b Layout:
+      %br
+
+      %ul
+
+        %li
+
+        %a{ "data-original-title" => "Room provides a raised platform for the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_platform) }
+          Layout Platform
+          - if @classroom.layout_platform
+            .fa.fa-check
+
+        %li
+        %a{ "data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_stage) }
+          Layout Stage
+          - if @classroom.layout_stage
+            .fa.fa-check
+
+        %li
+        %a{ "data-original-title" => "Room contains a stage in the front of the room.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.layout_tiered) } Layout Tiered
+        - if @classroom.layout_tiered
+          .fa.fa-check
+      %hr
+      %i.fa.fa-handshake-o{"aria-hidden" => "true"}
+      %a{ "data-original-title" => "Team Learning", "data-placement" => "right", rel: "tooltip", target: "_blank"}
+        %b Team Learning:
+
+      %br
+      %ul
+        %li
+        %a{ "data-original-title" => "Room has tables arranged for students to work in groups. Tables may or may not be moveable, room may feature turn-to-team tables.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.team_tables) }
+          Team Tables
+          - if @classroom.team_tables
+            .fa.fa-check
+        %li
+        %a{ "data-original-title" => "Room has multiple computers and monitors for students to use technology in small groups.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.team_technology) } Team Technology
+        - if @classroom.team_technology
+          .fa.fa-check
+        %li
+        %a{ "data-original-title" => "Room has whiteboards, blackboards or writable walls for students working in small groups.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.team_writing_surface) }
+          Team Writing Surfaces
+          - if @classroom.team_writing_surface
+            .fa.fa-check
+
+      %hr
+      %i#attribute_seating{"aria-hidden" => "true"}
+      %b Seating:
+      %ul
+
+        %li
+          %a{ "data-original-title" => "Room contains fixed chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_auditorium) }Seating Auditorium
+          - if @classroom.seating_auditorium
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room contains fixed chairs with no tablet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_chairs_fixed) }Seating Chairs Fixed
+          - if @classroom.seating_chairs_fixed
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room contains movable chairs with tablet writing surface.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_movable_tables_chairs) }Seating Moveable Tablet Chairs
+          - if @classroom.seating_movable_tables_chairs
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room is set up in a seminar/conference style with seats surrounding large table.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_table_conference) }Seating Table Conference
+          - if @classroom.seating_table_conference
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room contains a table writing surface for students (fixed, movable, or seminar/conference).", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_any) }Seating Tables Any
+          - if @classroom.seating_tables_any
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room contains fixed table writing surface for students.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_fixed) }Seating Tables Fixed
+          - if @classroom.seating_tables_fixed
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room has moveable table writing surface for students. Rooms w/ moveable tables should be considered fixed if: school/dept prohibits changing arrangement, tables are wired or attached so moving is not easy, or room does not allow for other arrangements.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.seating_tables_moveable) }Seating Tables Moveable
+          - if @classroom.seating_tables_moveable
+            .fa.fa-check
+
+      %hr
+
+      %i.fa.fa-volume-up{"aria-hidden" => "true"}
+      %b
+      %a{ "data-original-title" => "Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.sound_amplification) }Sound Amplification: Program
+      - if @classroom.sound_amplification
+        .fa.fa-check
+
+      %br
+      %i.fa.fa-microphone{"aria-hidden" => "true"}
+      %b
+      %a{ "data-original-title" => "Room contains sound system for the purpose of amplifying the instructor voice through the use of a wired or wireless microphone.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.sound_amplification_voice) }Sound Amplification: Voice
+      - if @classroom.sound_amplification_voice
+        .fa.fa-check
+
+      %br
+      %i.fa.fa-rss{"aria-hidden" => "true"}
+      %b
+      %a{ "data-original-title" => "Room provides a hardwired ethernet connection to a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.ethernet_students) }Ethernet Students
+      - if @classroom.ethernet_students
+        .fa.fa-check
+
+      %br
+      %i.fa.fa-plug{"aria-hidden" => "true"}
+      %b
+      %a{ "data-original-title" => "Room contains power outlets for a portion of student seats.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.power_students) }Power Students
+      - if @classroom.power_students
+        .fa.fa-check
+
+      %hr
+      %i.fa.fa-picture-o{"aria-hidden" => "true"}
+      %b Writing Surface:
+      %ul
+
+        %li
+          %a{ "data-original-title" => "Room contains a chalkboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_chalkboard_any) }Writing Surface Chalkboard Any
+          - if @classroom.writing_surface_chalkboard_any
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room contains a chalkboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_chalkboard_25ft) }Writing Surface Chalkboard 25ft
+          - if @classroom.writing_surface_chalkboard_25ft
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room contains a whiteboard writing surface of any size.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_whiteboard_any) }Writing Surface Whiteboard Any
+          - if @classroom.writing_surface_whiteboard_any
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room contains a whiteboard writing surface of over 25 feet.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.writing_surface_whiteboard_25ft) }Writing Surface Whiteboard 25ft
+          - if @classroom.writing_surface_whiteboard_25ft
+            .fa.fa-check
+
+    .col-md-5.col-md-offset-1
+      %h3 Equipment
+      %hr
+
+      %i#attribute_dvd{"aria-hidden" => "true"}
+      %b DVD Player:
+
+      %ul
+
+        -# %li
+          %a{ "data-original-title" => "Room contains DVD player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_regular) }Standard
+          - if @classroom.dvd_player_regular
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room contains Blu-Ray Disc player.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.dvd_player_blueray) }Blu-Ray / DVD
+          - if @classroom.dvd_player_blueray
+            .fa.fa-check
+      %hr
+
+      -# %i#attribute_captioning_device
+      %i.fa.fa-assistive-listening-systems{"aria-hidden" => "true"}
+      %b
+        %a{ "data-original-title" => "Room contains a special device for transcribing audio into displayable captions.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.captioning_device) }Captioning Device
+        - if @classroom.captioning_device
+          .fa.fa-check
+
+      %hr
+      %i.fa.fa-desktop{"aria-hidden" => "true"}
+      %b Computer Classroom:
+
+      %ul
+
+        %li
+          %i.fa.fa-power-off{"aria-hidden" => "true"}
+          %a{ "data-original-title" => "Room contains either PC or MAC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_any) }Computer Classroom Any
+          - if @classroom.computer_classroom_any
+            .fa.fa-check
+        %li
+          %i.fa.fa-apple{"aria-hidden" => "true"}
+          %a{ "data-original-title" => "Room contains Mac computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_mac) }Computer Classroom Mac
+          - if @classroom.computer_classroom_mac
+            .fa.fa-check
+        %li
+          %i.fa.fa-windows{"aria-hidden" => "true"}
+          %a{ "data-original-title" => "Room contains PC computers at each student workstation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.computer_classroom_windows) }Computer Classroom Windows
+          - if @classroom.computer_classroom_windows
+            .fa.fa-check
+      %hr
+      %i.fa.fa-laptop{"aria-hidden" => "true"}
+
+      %b Podium Computer:
+      %ul
+        %li
+          %i.fa.fa-apple{"aria-hidden" => "true"}
+          %a{ "data-original-title" => "Room contains a Mac computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_mac) }Podium Classroom Mac
+          - if @classroom.podium_computer_mac
+            .fa.fa-check
+
+        %li
+          %i.fa.fa-windows{"aria-hidden" => "true"}
+          %a{ "data-original-title" => "Room contains a PC computer for use by the instructor.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.podium_computer_windows) }Podium Classroom Windows
+          - if @classroom.podium_computer_windows
+            .fa.fa-check
+
+      %hr
+      %i#attribute_doc_camera{"aria-hidden" => "true"}
+      %b
+        %a{ "data-original-title" => "Room contains a specialized camera for the real-time displaying of documents, texts, or small objects.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.document_camera) }Document Camera
+        - if @classroom.document_camera
+          .fa.fa-check
+      %br
+      %i.fa.fa-edit{"aria-hidden" => "true"}
+      %b
+        %a{ "data-original-title" => "Room contains special digitial screen and writing surface for commenting/editing digital presentation.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.interactive_pen) }Interactive Screen
+        - if @classroom.interactive_pen
+          .fa.fa-check
+      %br
+      %i#attribute_lecture_capture{"aria-hidden" => "true"}
+      %b
+        %a{ "data-original-title" => "Room contains a lecture capture device to record instructor, digital presentation, or audio/voice. Must record voice at a minimum.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.lecture_capture) }Lecture Capture
+        - if @classroom.lecture_capture
+          .fa.fa-check
+      %br
+      %i.fa.fa-phone{"aria-hidden" => "true"}
+      %b
+        %a{ "data-original-title" => "Room contains a telephone.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.telephone) } Telephone
+        - if @classroom.telephone
+          .fa.fa-check
+      %br
+      %i.fa.fa-comments-o{"aria-hidden" => "true"}
+      %b
+        %a{ "data-original-title" => "Room contains a special video conferencing equipment, including camera.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.video_conferencing) }Video Conferencing
+        - if @classroom.video_conferencing
+          .fa.fa-check
+      %br
+
+      %hr
+      %i#attribute_projecters{"aria-hidden" => "true"}
+      %b Projection:
+      %ul
+
+        %li
+          %a{ "data-original-title" => "Room contains 16mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_16mm_film) }Projection 16mm Film
+
+          - if @classroom.projection_16mm_film
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room contains 35mm film projector.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_35mm_file) }Projection 35mm Film
+          - if @classroom.projection_35mm_file
+            .fa.fa-check
+        %li
+          %a{ "data-original-title" => "Room contains projector or monitor to digitally display video from any of the room A/V and IT components, such as computer or DVD/VCR.", "data-placement" => "right", :href => "#", :rel => "tooltip", :class => attribute_true?(@classroom.projection_digital_data_video) }Projection Digital Data Video
+          - if @classroom.projection_digital_data_video
+            .fa.fa-check
+        %li
+          %a{ 'data-original-title' => 'Room contains a traditional slide projector for the display of photographic slides.', 'data-placement' => 'right', :href => '#', :rel => 'tooltip', :class => attribute_true?(@classroom.projection_traditional_slide) }Projection Traditional Slide
+          - if @classroom.projection_traditional_slide
+            .fa.fa-check
+      %hr
+      %h4.fa.fa-wheelchair{"aria-hidden" => "true"}
+        Accessibility
+
+      %p
+        Adaptive technologies are provided by request. Please contact the Office of Services for Students with Disabilities to provide adaptive technologies to your classroom. Phone 763-3000 or email <a href="mailto:ssdoffice@umich.edu" target="_blank">ssdoffice@umich.edu</a>
+
+      %br
+      %br
+      %h4 Notes
+      = @classroom.notes.html_safe if @classroom.notes
+
+      %hr
+      #last_updated
+        Updated:
+        = @classroom.updated_at.strftime '%I:%M %p %Y-%m-%d'
+
+
+:javascript
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+
+    $('#myTab').click(function(e) {
+      if (e.target.id == "#picturetab"){
+        var placeholder = "nothing";
+
+      }
+      else if (e.target.id == "#panotab") {
+
+      //check if html5 version or panorama exists.
+      $.ajax({
+        url:'/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml',
+        type:'HEAD',
+        error:
+          function(){
+            $("#pano").insertAfter("<div id='missing_pano'><h4>Attempting to load panorama</h4></div>")
+            },
+        success:
+
+          function(){
+
+            if (swfobject.hasFlashPlayerVersion("9"))
+            {
+
+
+        			var flashvars = {};
+        			var params = {};
+        			params.quality = "high";
+        			params.bgcolor = "#ffffff";
+        			params.allowscriptaccess = "sameDomain";
+        			params.allowfullscreen = "true";
+        			params.wmode = "transparent";
+        			var attributes = {};
+        			attributes.id = "pano";
+        			attributes.name = "pano";
+        			attributes.align = "middle";
+
+        			flashvars.panoxml="/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml";
+
+        			params.base=".";
+        			swfobject.embedSWF(
+        				"/system/videos/panoramas/pano2vr_player.swf", "missing_pano",
+        				"1200", "500",
+        				"9", "",
+        				flashvars, params, attributes);
+
+
+
+
+        		} else
+        		// check for CSS3 3D transformations and WebGL
+        		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+
+
+        			// create the panorama player with the container
+        			pano=new pano2vrPlayer("pano");
+        			pano.readConfigUrl("/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR_OUT.xml");
+
+        			// hide the URL bar on the iPhone
+        			hideUrlBar();
+
+        		}
+
+
+              else{
+                $("#missing_pano").replaceWith("<object CLASSID=\"clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B\" width=\"900\" height=\"260\" class=\"legacy_panorama\" CODEBASE=\"http://www.apple.com/qtactivex/qtplugin.cab\" class=\"legacy_panorama\"> <param name=\"src\" value=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\"><param name=\"target\" value=\"myself\" /><param name=\"controller\" value=\"false\"><param name=\"scale\" value=\"tofit\"><param name=\"kioskmode\" value=\"true\"> <embed src=\"/system/videos/panoramas/#{@classroom.facility_code_heprod.upcase}_QTVR.mov\" width=\"900\" height=\"260\" scale=\"tofit\" target=\"myself\"  kioskmode=\"true\" loop=\"false\" controller=\"false\" pluginspage=\"http://www.apple.com/quicktime/\"></embed></object>");
+
+                }
+              }
+        });
+          }
+      else if (e.target.id == "#maptab"){
+
+        $('#map').height("300px").width("106%").gmap3({
+
+          map:{
+
+            options:{
+              center:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+              zoom:16,
+              mapTypeId: google.maps.MapTypeId.ROADMAP,
+              mapTypeControl: false,
+              mapTypeControlOptions: {
+                style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR
+                },
+              navigationControl: false,
+              scrollwheel: false,
+              zoomControl: true,
+              zoomControlOptions: {
+                  style: google.maps.ZoomControlStyle.DEFAULT
+                },
+              streetViewControl: false,
+              panControl: false,
+              panControlOptions: {
+                  position: google.maps.ControlPosition.BOTTOM_LEFT
+              },
+            },
+          },
+
+           infowindow:{
+                latLng:[#{@classroom.location.latitude.to_s},#{@classroom.location.longitude.to_s}],
+                options:{
+                  content:'<div style=""><col-md->#{link_to image_tag(@building_image, :class => "round", :style => "max-width: 100px; float: left; margin-right: 1em;"), "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"} </col-md-> <col-md- style="float: right;  font-size: 11px;  line-height: 1.2em;"><b>#{@building.name}<br /> #{@building.locatable.address}<br /> #{link_to "All Classrooms",  "../classrooms?utf8=✓&search%5Blocation_id_equals%5D=#{@building.id}"}<br /> #{link_to "Floor Map",  "../maps/#{basement}.html"}</col-md-> </div> '
+                  }
+                }
+
+        });
+
+          }
+        else if (e.target.id == "#contacttab"){
+
+
+        }
+        google.maps.event.addListener(map, "idle", function(){
+        	google.maps.event.trigger(map, 'resize');
+        });
+    });
+
+  // Allows direct links to specific tabs
+  $(function() {
+    // Javascript to enable link to tab
+    var url = document.location.toString();
+    if (url.match('#')) {
+      $('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show') ;
+    }
+
+    // Change hash for page-reload
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+      window.location.hash = e.target.hash;
+    });
+  });

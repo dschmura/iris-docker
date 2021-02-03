@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angell Hall Fourth Floor</title>
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+padding:2% 0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.9);
+width:45%;
+height:auto;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+.navlabel{
+ color:black;
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:63%;
+  margin:auto;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  button{font-size:small;}
+  .navlabel{font-size:x-small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:110%;}
+     #nav{width:60%}
+  }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:250px;}
+  }
+}
+
+/* padding and positions for all the links */
+
+a.ah4175{height:17%; width:19%; bottom:2.5%; left:7.5%;}
+a.ah4199{height:18.1%; width:19%; bottom:37.7%; left:7.5%;}
+a.ah4207{height:18.4%; width:19%; top:23.5%; left:7.5%;}
+a.ah4211{height:20.1%; width:19%; top:2%; left:7.5%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+
+<div class="page">
+<header>
+<h1>Angell Hall Fourth Floor</h1>
+</header>
+
+<nav>
+<button type="button" id="navButt" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
+
+<ul id="nav" style="display:none;">
+<li class="text">
+<a href="ahg.html" aria-label="ground floor, Angell Hall">
+Ground Floor Angell</a>
+</li>
+<li class="text">
+<a href="ah1.html" aria-label="first floor, Angell Hall">
+First Floor Angell</a>
+</li>
+<li class="text">
+<a href="ah2.html" aria-label="second floor, Angell Hall">
+Second Floor Angell</a>
+</li>
+<li class="text">
+<a href="ah3.html" aria-label="third floor, Angell Hall">
+Third Floor Angell</a>
+</li>
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the fourth floor of angell.">This is the fourth floor</a>
+</li>
+<li class="text">
+<a href="ah5.html" aria-label="fifth floor, Angell Hall">
+Fifth Floor Angell</a>
+</li>
+<hr aria-hidden="true">
+<li class="text">
+<a class="navlabel" href="#!" aria-label="This link is inactive. There is no fourth floor in mason hall">
+There is no fourth floor in Mason</a>
+</li>
+<li class="text">
+<a class="navlabel" href="#!" aria-label="This link is inactive. There are no classrooms on the fourth floor in haven hall">
+There are no classrooms on the fourth floor of Haven</a>
+</li>
+<hr aria-hidden="true">
+<li class="text">
+<a href="index.html" aria-label="central campus map">
+Central Campus</a>
+</li>
+<li class="text">
+<a href="/" aria-label="M Classrooms Home Page">
+MClassrooms Home</a>
+</li>
+</ul>
+</nav>
+
+<!-- floor plan -->
+<main>
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="ah4.jpg" alt="fourth floor of Angell Hall, four classroom links on this drawing" />
+
+<!-- links to classroom data  -->
+
+<a class="rm ah4175" href="../classrooms/AH4175" aria-label="room four one seven five angell hall information"></a>
+<a class="rm ah4199" href="../classrooms/AH4199" aria-label="room four one nine nine angell hall information"></a>
+<a class="rm ah4207" href="../classrooms/AH4207" aria-label="room four two zero seven angell hall information"></a>
+<a class="rm ah4211" href="../classrooms/AH4211" aria-label="room four two one one angell hall information" onfocus="scrollup()"></a>
+
+</div>
+</div>
+</main>
+</div>
+
+</body>
+</html>
+
+<script>
+
+var elmnt = document.getElementById("scrollbox");
+window.onload=function scrolldown() {
+    elmnt.scrollLeft = 0;
+    elmnt.scrollTop = 110;
+}
+function scrollup() {
+    elmnt.scrollTop = 0;
+}
+
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
+
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+   x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+
+</script>

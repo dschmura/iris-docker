@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haven Complex Third Floor</title>
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+padding:2% 0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.9);
+width:45%;
+height:auto;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+.navlabel{
+ color:black;
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ font-style:oblique;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:120%;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  .navlabel{font-size:x-small;}
+  button{font-size:small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:150%;}
+     #nav{width:60%}
+  }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:250px;}
+    #fpbox{width:140%;}
+  }
+}
+
+/* dimensions and positions for all the links */
+
+a.mh3302{height:6%; width:9%; top:17.3%; left:29.5%;}
+a.mh3315{height:6%; width:5%; top:9.5%; left:38.2%;}
+a.mh3314{height:6%; width:8.6%; top:17.3%; left:39%;}
+a.mh3333{height:6%; width:8.6%; top:9.5%; left:43.5%;}
+a.mh3330{height:6%; width:13%; top:17.3%; right:37.8%;}
+a.mh3347{height:6%; width:8.6%; top:9.5%; right:37.8%;}
+a.mh3353{height:6%; width:4.5%; top:9.5%; right:33.1%;}
+a.mh3356{height:6%; width:8.6%; top:17.3%; right:28.4%;}
+a.mh3359{height:6%; width:4.5%; top:9.5%; right:28.2%;}
+a.mh3401{height:6%; width:8.5%; top:5.5%; right:9%;}
+a.mh3411{height:6%; width:8.5%; top:12%; right:9%;}
+a.mh3427{height:6%; width:8.5%; top:18.1%; right:9%;}
+a.mh3437{height:7.6%; width:8.5%; top:24.5%; right:9%;}
+a.mh3440{height:2.7%; width:8.5%; top:27.5%; right:20.2%;}
+a.mh3448{height:6%; width:8.5%; top:30.6%; right:20.2%;}
+a.mh3451{height:5.1%; width:8.5%; top:32.6%; right:9%;}
+a.mh3460{height:6%; width:8.5%; top:36.8%; right:20.2%;}
+a.mh3463{height:7.8%; width:8.5%; top:38%; right:9%;}
+a.hh3505{height:2.7%; width:8.5%; top:46.4%; right:9%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+
+<div class="page">
+<header>
+<h1>Haven Complex Third Floor</h1>
+</header>
+<nav>
+<button type="button" id="navButt" aria-expanded="false" aria-label="select to navagate floor plans">Navigate Floor Plans</button>
+
+<ul id="nav" style="display:none;">
+<li class="text">
+<a href="hhg.html" aria-label="ground floor, Haven Hall">
+Ground Floor Haven</a>
+</li>
+<li class="text">
+<a href="hh1.html" aria-label="first floor, Haven Hall">
+First Floor Haven</a>
+</li>
+<li class="text">
+<a href="hh2.html" aria-label="second floor, Haven Hall">
+Second Floor Haven</a>
+</li>
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the third floor of Haven.">This is the third floor</a>
+</li>
+<li class="navlabel" tabindex="0">no classrooms on the fourth floor</li>
+<li class="text">
+<a href="hh5.html" aria-label="fifth floor, Haven Hall">
+Fifth Floor Haven</a>
+</li>
+<li class="navlabel" tabindex="0">no classrooms on the sixth floor</li>
+<li class="text">
+<a href="hh7.html" aria-label="seventh floor, Haven Hall">
+Seventh Floor Haven</a>
+</li>
+<hr aria-hidden="true">
+<li class="text">
+<a href="ah3.html" aria-label="Angell Hall, third floor">
+Angell Third Floor</a>
+</li>
+<li class="text">
+<a href="mh3.html" aria-label="Mason Hall, third floor">
+Mason Third Floor</a>
+</li>
+<hr aria-hidden="true">
+<li class="text">
+<a href="index.html" aria-label="central campus map">
+Central Campus</a>
+</li>
+<li class="text">
+<a href="/" aria-label="M Classrooms Home Page">
+MClassrooms Home</a>
+</li>
+</ul>
+</nav>
+
+<!-- floor plan -->
+<main>
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="ahplex3.jpg" alt="third floor of the angell mason haven Hall Complex, nineteen classroom links on this drawing" />
+
+<!-- links to classroom data  -->
+
+<a class="rm hh3505" href="../classrooms/HH3505" aria-label="room three five zero five haven hall information"></a>
+<a class="rm mh3302" href="../classrooms/MH3302" aria-label="room three three zero two mason hall information"></a>
+<a class="rm mh3315" href="../classrooms/MH3315" aria-label="room three three one five mason hall information"></a>
+<a class="rm mh3314" href="../classrooms/MH3314" aria-label="room three three one four mason hall information"></a>
+<a class="rm mh3333" href="../classrooms/MH3333" aria-label="room three three three three mason hall information"></a>
+<a class="rm mh3330" href="../classrooms/MH3330" aria-label="room three three three zero mason hall information"></a>
+<a class="rm mh3347" href="../classrooms/MH3347" aria-label="room three three four seven mason hall information"></a>
+<a class="rm mh3353" href="../classrooms/MH3353" aria-label="room three three five three mason hall information"></a>
+<a class="rm mh3356" href="../classrooms/MH3356" aria-label="room three three five six mason hall information"></a>
+<a class="rm mh3359" href="../classrooms/MH3359" aria-label="room three three five nine mason hall information"></a>
+<a class="rm mh3401" href="../classrooms/MH3401" aria-label="room three four zero one mason hall information"></a>
+<a class="rm mh3411" href="../classrooms/MH3411" aria-label="room three four one one mason hall information"></a>
+<a class="rm mh3427" href="../classrooms/MH3427" aria-label="room three four two seven mason hall information"></a>
+<a class="rm mh3437" href="../classrooms/MH3437" aria-label="room three four three seven mason hall information"></a>
+<a class="rm mh3440" href="../classrooms/MH3440" aria-label="room three four four zero mason hall information"></a>
+<a class="rm mh3448" href="../classrooms/MH3448" aria-label="room three four four eight mason hall information"></a>
+<a class="rm mh3451" href="../classrooms/MH3451" aria-label="room three four five one mason hall information"></a>
+<a class="rm mh3460" href="../classrooms/MH3460" aria-label="room three four six zero mason hall information"></a>
+<a class="rm mh3463" href="../classrooms/MH3463" aria-label="room three four six three mason hall information"></a>
+
+</div>
+</div>
+</main>
+</div>
+
+</body>
+</html>
+
+<script>
+
+window.onload=function scrolldown() {
+    var elmnt = document.getElementById("scrollbox");
+    elmnt.scrollLeft = 2000;
+    elmnt.scrollTop = 570;
+}
+
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
+
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navagation");
+      x.innerHTML="Close Navigation Links";
+   x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navagate floor plans");
+      x.focus();
+   }
+}
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navagate floor plans");
+      x.focus();
+   }
+}
+
+</script>

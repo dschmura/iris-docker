@@ -1,0 +1,167 @@
+$um_blue: #00274c
+$um_maize: #ffcb05
+$puma_black: #111b23
+$law_quad_stone: #655a52
+$the_rock_gray: #6a6d68
+$angell_hall_ash: #7a6e66
+$dark_grey: #333
+$grey: #555
+$tappan_red: #b51e0a
+$hill_brown: #7a121c
+$archway_ivy: #7e732f
+$burton_tower_beige: #797852
+$umma_tan: #766536
+$observatory_white: #6d675d
+$pea_soup: #886b01
+$greyb: #6a6a6a
+$greyc: #6f767a
+$ross_school_orange: #ac5f00
+$lsa_orange: #ac5600
+$wave_field_green: #797500
+$arboretum_blue: #006ab8
+$canham_pool_blue: #4568ae
+$deep_blue: #002a5b
+$semi_deep_blue: #027494
+$blue: #0257aa
+$heather_blue: #465d85
+$rich_heather_blue: #40658f
+$taubman_teal: #007474
+$rackham_roof_green: #48736a
+$ann_arbor_amethyst: #702490
+$matthaei_violet: #575294
+$south_forrest_green: #18453b
+$huron_river_green: #0c5832
+$spring_term_green: #00743c
+
+$navbarBackground: #FFF
+$navbarBackgroundHighlight: #FFF
+$navbarLinkColorHover: #3A5AA0
+$font-size-base: 15px
+$navbarLinkBackgroundActive: #f8f5e4
+$navbarCollapseWidth: 720px
+$alert: #8F0900
+
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+@mixin rounded-corners($radius: 10px)
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+
+.field_with_errors
+  @extend .has-error
+  border: 2px solid $alert
+
+html
+  overflow-y: scroll
+  height: 100%
+  margin-left: auto
+  margin-right: auto
+  max-width: 1200px
+  text-align: center
+
+
+body
+  padding-top: 12px
+  /* for non-css3 browsers
+  /* for non-css3 browsers */
+  background: $umma_tan
+  background: lighten($umma_tan, 40%)
+  /* for IE */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='lighten($umma_tan, 30%)', endColorstr='lighten($umma_tan, 50%)')
+  /* for webkit browsers */
+  background: -webkit-gradient(linear, left top, left bottom, from(lighten($umma_tan, 30%)), to(lighten($umma_tan, 50%)))
+  /* for firefox 3.6+ */
+  background: -moz-linear-gradient(top,  lighten($umma_tan, 30%),  lighten($umma_tan, 50%))
+
+  display: block
+  text-align: left
+  font-smooth: always
+  -webkit-font-smoothing: antialiased
+
+.fa.fa
+  font-size: 16px
+
+.content
+  padding: 2em
+
+section
+  overflow: auto
+
+textarea
+  resize: vertical
+
+.center
+  text-align: center
+  h1
+    margin-bottom: 10px
+header
+  padding-bottom: 1%
+  nav
+    height: 33px
+
+select
+  height: 2em
+  max-height: 2em
+
+footer
+  margin-top: 20px
+  text-align: center
+  clear: both
+  padding-top: 10px
+  max-height: 38px
+  margin-left: auto
+  margin-right: auto
+  .regents_link
+    a
+      color: #fff
+  nav
+    max-height: 43px
+    display: block
+    overflow: hidden
+    background-color: #fff
+    ul
+      position: relative
+      left: 13%
+      bottom: 5px
+      margin-right: auto
+      .active
+        background: #eee
+.navbar-header
+  height: 50px
+  ul
+    padding-right: 3em
+    a
+      padding: 5px
+      margin: 10px 5px 0 0
+
+.accessible a
+  position: absolute
+  left: -1000em
+  padding: 5px
+  font-weight: bold
+  background-color: #fc3
+
+.accessible a:focus, .accessible a:active
+  position: absolute
+  top: 2em
+  left: 2em
+
+.alert
+  .close
+    margin: 10px 10px
+
+#flash_notice
+  background-color: #F6BC1C
+  padding: 1em
+  @include rounded-corners(6px)
+
+
+#flash_alert
+  background-color: $alert
+  font-weight: bold
+  color: #fff
+  padding: 1em
+  @include rounded-corners(6px)
+

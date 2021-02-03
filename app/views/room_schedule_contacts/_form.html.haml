@@ -1,0 +1,16 @@
+= simple_form_for(@room_schedule_contact) do |f|
+  = f.error_notification
+  
+  .inputs
+    = f.input :rmrecnbr
+    = f.input :rm_schd_cntct_name
+    = f.input :rm_schd_email
+    = f.input :rm_schd_cntct_phone
+    = f.input :rm_det_url
+    = f.input :rm_usage_guidlns_url
+
+  .actions
+    = f.button :submit
+
+
+Batch update

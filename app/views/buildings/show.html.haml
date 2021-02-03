@@ -1,0 +1,53 @@
+%p#notice= notice
+%h1= @page_title
+
+
+#building_data.col-md-5
+  %p
+    %b Building Code (heprod):
+    = @building.building_code_heprod
+  %p
+    %b Building Short Code:
+    = @building.building_short_code
+  %p
+    %b Name:
+    = @building.location.name
+  %p
+    %b Address:
+    = @building.address
+  %p
+    %b Address2:
+    = @building.address2
+  %p
+    %b City:
+    = @building.city
+  %p
+    %b State:
+    = @building.state
+  %p
+    %b Zip:
+    = @building.zip
+  %p
+    %b Description:
+    = @building.description
+  %p
+    %b History:
+    = @building.history
+
+.col-md-6
+  #building_image.round
+    = link_to (image_tag @building.location.picture.url(:medium).to_s), building_path
+
+  #building_sign_image.round
+    = link_to (image_tag @building.location.building_sign.url(:medium).to_s), building_path
+
+- if user_signed_in?
+  - if current_user.admin?
+    = link_to 'Edit', edit_building_path(@building)
+    \|
+= link_to 'List', buildings_path
+    
+
+
+
+

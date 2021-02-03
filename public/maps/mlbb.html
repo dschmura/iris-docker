@@ -1,0 +1,300 @@
+<DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLB Basement</title>
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+padding:2% 0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.9);
+width:45%;
+height:auto;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+.navlabel{
+ color:black;
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ font-style:oblique;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+#fpaudio{
+position:absolute;
+top:10%;
+left:10%;
+width:60%;
+height:60%;
+overflow:hidden;
+z-index:-10;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  margin:auto;
+  width:70%;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  .navlabel{font-size:x-small;}
+  button{font-size:small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:100%;}
+     #nav{width:60%;}
+  }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:225px;}
+    #fpbox{width:80%;}
+  }
+}
+
+/* dimensions and positions for all the links */
+
+a.mlbb101{height:10%; width:10.5%; right:38%; top:18.2%;}
+a.mlbb103{height:10%; width:9.6%; right:49%; top:18.2%;}
+a.mlbb109{height:6.5%; width:14%; left:25%; top:24.3%;}
+a.mlbb111{height:6.6%; width:14%; left:25%; top:31.3%;}
+a.mlbb113{height:6.6%; width:14%; left:25%; top:38.9%;}
+a.mlbb115a{height:6.6%; width:14%; left:25%; top:46%;}
+a.mlbb116{height:14.1%; width:14%; left:7.9%; top:46%;}
+a.mlbb118{height:6.6%; width:14%; left:7.9%; bottom:31.5%;}
+a.mlbb120{height:6.6%; width:14%; left:7.9%; bottom:24%;}
+a.mlbb122{height:7.4%; width:14%; left:7.9%; bottom:16%;}
+a.mlbb124{height:13%; width:11.5%; left:21.5%; bottom:2%;}
+a.mlbb134{height:9%; width:12%; right:32.1%; bottom:6%;}
+a.mlbb135{height:7.4%; width:14%; right:20%; bottom:16%;}
+a.mlbb137{height:12%; width:14%; right:20%; bottom:24%;}
+a.mlb2022{height:11%; width:13%; left:9.5%; bottom:6%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+
+<div class="page">
+<header>
+<h1 aria-label="modern languages building basement.">MLB Basement</h1>
+</header>
+
+<nav>
+<button type="button" id="navButt" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
+
+<ul id="nav" style="display:none;">
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are in the basement">This is the basement</a>
+</li>
+<li class="text">
+<a href="mlb1.html">
+First Floor</a>
+</li>
+<li class="text">
+<a href="mlb2.html">
+Second Floor</a>
+</li>
+<li class="text">
+<a href="mlb3.html">
+Third Floor</a>
+</li>
+<li class="text">
+<a href="mlb4.html">
+Fourth Floor</a>
+</li>
+<hr aria-hidden="true">
+<li class="text">
+<a href="index.html" aria-label="central campus map">
+Central Campus</a>
+</li>
+<li class="text">
+<a href="/" aria-label="M classrooms home page">
+MClassrooms Home</a>
+</li>
+</ul>
+</nav>
+
+<!-- floor plan -->
+<main>
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="mlbb.jpg" alt="basement Modern Languages Building, fourteen classroom links on this drawing" />
+
+<!-- links to classroom data  -->
+
+<a class="rm mlbb101" href="../classrooms/MLBB101" aria-label="room B one zero one information"></a>
+<a class="rm mlbb103" href="../classrooms/MLBB103" aria-label="room B one zero three information"></a>
+<a class="rm mlbb109" href="../classrooms/MLBB109" aria-label="room B one zero nine information"></a>
+<a class="rm mlbb111" href="../classrooms/MLBB111" aria-label="room B one one one information"></a>
+<a class="rm mlbb113" href="../classrooms/MLBB113" aria-label="room B one one three information"></a>
+<a class="rm mlbb115a" href="../classrooms/MLBB115A" aria-label="room B one one five, A, information"></a>
+<a class="rm mlbb116" href="../classrooms/MLBB116" aria-label="room B one one six information"></a>
+<a class="rm mlbb118" href="../classrooms/MLBB118" aria-label="room B one one eight information"></a>
+<a class="rm mlbb120" href="../classrooms/MLBB120" aria-label="room B one two zero information"></a>
+<a class="rm mlbb122" href="../classrooms/MLBB122" aria-label="room B one two two information"></a>
+<a class="rm mlbb124" href="../classrooms/MLBB124" aria-label="room B one two four information"></a>
+<a class="rm mlbb134" href="../classrooms/MLBB134" aria-label="room B one three four information"></a>
+<a class="rm mlbb135" href="../classrooms/MLBB135" aria-label="room B one three five information"></a>
+<a class="rm mlbb137" href="../classrooms/MLBB137" aria-label="room B one three seven information"></a>
+
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>
+
+<script>
+
+window.onload=function scrolldown() {
+    var elmnt = document.getElementById("scrollbox");
+    elmnt.scrollLeft = 0;
+    elmnt.scrollTop = 100;
+}
+
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
+
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+   x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+</script>

@@ -1,0 +1,28 @@
+%nav.navbar.navbar-default{role: "navigation"}
+ 
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    .accessible
+      <a href="#content">Skip to main content</a>
+      <a href="#main_nav">Skip to navigation</a>  
+    = link_to logo, root_path, :class => 'navbar-brand', :id => 'logo' 
+  / Collect the nav links, forms, and other content for toggling
+  .navbar-collapse.collapse
+    %ul.nav.navbar-nav.navbar-right
+      %li
+        =link_to "Home", root_path
+    
+      %li
+        = link_to "About", about_path
+      %li
+        = link_to "Classrooms", classrooms_path
+      %li
+        = link_to "FAQs", faq_path
+
+      %li
+        = link_to "Support", support_path
+      

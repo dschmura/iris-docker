@@ -1,0 +1,58 @@
+
+#contact_sheet
+  .fa.fa-wrench
+  %b Support Information
+
+  #support_info
+
+
+    %b Supporting Department:
+    %a{"data-original-title" => @room_schedule_contact.RM_SPPT_DEPT_DESCR, "data-placement" => "right", :href => classroom_path, :rel => "tooltip"}
+      = truncate(@room_schedule_contact.RM_SPPT_DEPT_DESCR, :length => 30)
+
+    %br
+    %b Support Contact:
+    %a{"data-original-title" => "Full Name:" + @room_schedule_contact.RM_SPPT_DEPT_DESCR.to_s, "data-placement" => "right", :href => "#", :rel => "tooltip"}
+      -#= truncate(@owner.department_name, :length => 30)
+    //= link_to @room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s, "mailto:"+@room_schedule_contact.RM_SPPT_CNTCT_EMAIL.to_s
+    = support_contact_email
+
+    %br
+    %b Support Contact Phone:
+    = @room_schedule_contact.RM_SPPT_CNTCT_PHONE
+
+  %hr
+  .fa.fa-calendar
+  %b Scheduling Information
+
+  #scheduling_info
+
+    %b Department:
+    = scheduling_contact_email
+    %a{"data-original-title" => @room_schedule_contact.rm_schd_cntct_name, "data-placement" => "right", :href => "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod}", :target => "_blank", :rel => "tooltip"}
+
+    -#   = truncate(@room_schedule_contact.rm_schd_cntct_name, :length => 40)
+    %br
+    %b Contact Phone:
+    = @room_schedule_contact.rm_schd_cntct_phone
+    %br
+    %b Room Schedule:
+    = link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank"
+
+  %hr
+  .fa.fa-info-circle
+  %b Additional Information
+
+  #additional_contact_info
+    %b Room Usage Guidelines:
+
+    - if @room_schedule_contact.rm_usage_guidlns_url?
+      = link_to "View Room Usage Guidelines",@room_schedule_contact.rm_usage_guidlns_url , :target => "_blank"
+    -else
+      None Available.
+    %br
+
+    %b Floor Map:
+    = floor_plan
+
+    //#{link_to @classroom.location.name,  "../maps/#{basement}.html"}

@@ -1,0 +1,297 @@
+<DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angell Complex Ground Floor</title>
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.8);
+width:45%;
+height:auto;
+display:none;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+button.closenav{
+ display:none;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding-bottom:1%;
+}
+.navlabel{
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding-bottom:1%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:115%;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  .navlabel{font-size:x-small;}
+  button{font-size:small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:150%;}
+     #nav{width:60%;}
+  }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:225px;}
+    #fpbox{width:140%;}
+  }
+}
+
+/* padding and positions for all the links */
+
+a.aha{padding:9%; bottom:24.5%; right:29%;}
+a.ahb{padding:9%; bottom:24.5%; left:30%;}
+a.ahc{padding:9%; bottom:38%; right:29%;}
+a.ahd{padding:9%; bottom:38%; left:30%;}
+a.ahg026{padding:5% 4.5%; bottom:16%; left:39.5%;}
+a.ahg040{padding:5% 4%; bottom:16%; left:31%;}
+a.ahg115{padding:7% 5%; bottom:0%; left:11%;}
+a.ahg127{padding:7% 5%; bottom:10.5%; left:11%;}
+a.ahg128{padding:3.5% 2.5%; bottom:7.5%; left:22.5%;}
+a.ahg144{padding:4.5% 3%; bottom:15.5%; left:22.5%;}
+a.ahg128{padding:3.5% 2.5%; bottom:7.5%; left:22.5%;}
+a.ahg144{padding:4.5% 3%; bottom:15.5%; left:22.5%;}
+a.ahg160{padding:4%; bottom:29%; left:22%;}
+a.ahg168{padding:5% 4%; bottom:35%; left:22%;}
+a.ahg228{padding:4%; top:30%; left:22%;}
+a.ahg232{padding:4%; top:23.5%; left:22%;}
+a.mhg421b{padding:4%; top:4%; right:12.5%;}
+a.mhg437{padding:4%; top:24%; right:12.5%;}
+a.mhg449{padding:4%; top:30.3%; right:12.5%;}
+a.mhg463{padding:4%; top:36.6%; right:12.5%;}
+a.hhg634{padding:5.5%; bottom:16%; right:16.5%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+
+<div class="page">
+
+<h1>Angell Complex Ground Floor</h1>
+
+<button type="button" id="navButt" tabindex="1" title="click to open navagation links" aria-label="click to open navagation links">Navigate Floor Plans</button>
+<button class="closenav" type="button" id="closeNavButt" tabindex="1" title="click to close navagation links" aria-label="click to close navagation links">Close Navigation</button>
+
+<div id="nav">
+<p class="text" tabindex="4" style="color:gray;" aria-label="this is the ground floor of angell hall"> you are on the ground floor</p>
+<p class="text">
+<a href="ah1.html" tabindex="5" title="to the first floor" aria-label="to the first floor">
+First Floor</a>
+</p>
+<p class="text">
+<a href="ah2.html" tabindex="6" title="to the second floor" aria-label="to the second floor">
+Second Floor</a>
+</p>
+<p class="text">
+<a href="ah3.html" tabindex="7" title="to the third floor" aria-label="to the third floor">
+Third Floor</a>
+</p>
+<p class="text">
+<a href="ah4.html" tabindex="8" title="to the fourth floor"" aria-label="to the fourth floor">
+Fourth Floor</a>
+</p>
+<p class="text">
+<a href="ah5.html" tabindex="9" title="to the fifth floor" aria-label="to the fifth floor">
+Fifth Floor</a>
+</p>
+<hr aria-hidden="true">
+<p class="text">
+<a href="mhg.html" tabindex="15" title="to Mason Hall, ground floor" aria-label="to Mason Hall, ground floor">
+Mason Hall</a>
+</p>
+<p class="text">
+<a href="hhg.html" tabindex="17" title="to Haven Hall, ground floor" aria-label="to Haven Hall, ground floor">
+Haven Hall</a>
+</p>
+<hr aria-hidden="true">
+<p class="text">
+<a href="index.html" tabindex="20" title="to the central campus map" aria-label="to the central campus map">
+Central Campus</a>
+</p>
+<p class="text">
+<a href="/" tabindex="21" title="to the MClassrooms home page" aria-label="to the m classrooms home page">
+MClassrooms Home</a>
+</p>
+
+</div>
+
+<!-- floor plan -->
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="ahplexg.jpg" alt="Drawing of the ground floor of the Angell Hall Complex" />
+
+<!-- links to classroom data  -->
+
+<a class="rm aha" href="../classrooms/AHA" tabindex="30" title="to information for Auditorium A, Angell" aria-label="to information for Auditorium A, angell hall"></a>
+<a class="rm ahb" href="../classrooms/AHB" tabindex="31" title="to information for Auditorium B, Angell" aria-label="to information for Auditorium B, angell hall"></a>
+<a class="rm ahc" href="../classrooms/AHC" tabindex="32" title="to information for Auditorium C, Angell" aria-label="to information for Auditorium C, angell hall"></a>
+<a class="rm ahd" href="../classrooms/AHD" tabindex="33" title="to information for Auditorium D, Angell" aria-label="to information for Auditorium D, angell hall"></a>
+<a class="rm ahg026" href="../classrooms/AHG026" tabindex="34" title="to information for room G026 Tisch" aria-label="to information about room gee zero two six, tisch hall"></a>
+<a class="rm ahg040" href="../classrooms/AHG040" tabindex="35" title="to information  for room G040 Tisch" aria-label="to information about room gee zero four zero, tisch hall"></a>
+<a class="rm ahg115" href="../classrooms/AHG115" tabindex="36" title="to information for room G115 Angell" aria-label="to information about room gee one one five, angell hall"></a>
+<a class="rm ahg127" href="../classrooms/AHG127" tabindex="37" title="to information for room G127 Angell" aria-label="to information about room gee one two seven, angell hall"></a>
+<a class="rm ahg128" href="../classrooms/AHG128" tabindex="38" title="to information for room G128 Angell" aria-label="to information about room gee one two eight, angell hall"></a>
+<a class="rm ahg144" href="../classrooms/AHG144" tabindex="39" title="to information for room G144 Angell" aria-label="to information about room gee one four four, angell hall"></a>
+<a class="rm ahg160" href="../classrooms/AHG160" tabindex="40" title="to information for room G160 Angell" aria-label="to information about room gee one six zero, angell hall"></a>
+<a class="rm ahg168" href="../classrooms/AHG168" tabindex="41" title="to information for room G168 Angell" aria-label="to information about room gee one six eight, angell hall"></a>
+<a class="rm ahg228" href="../classrooms/AHG228" tabindex="42" title="to information for room G228 Angell" aria-label="to information about room gee two two eight, angell hall"></a>
+<a class="rm ahg232" href="../classrooms/AHG232" tabindex="43" title="to information for room G232 Angell" aria-label="to information about room gee two three two, angell hall"></a>
+<a class="rm mhg421b" href="../classrooms/MHG421B" tabindex="44" title="to information for G421B Mason" aria-label="to information about room gee four two one B, mason hall"></a>
+<a class="rm mhg437" href="../classrooms/MHG437" tabindex="45" title="to information for G437 Mason" aria-label="to information about room gee four three seven, mason hall"></a>
+<a class="rm mhg449" href="../classrooms/MHG449" tabindex="46" title="to information for G449 Mason" aria-label="to information about room gee four four nine, mason hall"></a>
+<a class="rm mhg463" href="../classrooms/MHG463" tabindex="47" title="to information for G463 Mason" aria-label="to information about room gee four six three, mason hall"></a>
+<a class="rm hhg634" href="../classrooms/HHG634" tabindex="48" title="to information for G634 Haven" aria-label="to information about room gee six three four, haven hall"></a>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
+
+<script>
+
+window.onload=function scrolldown() {
+    var elmnt = document.getElementById("scrollbox");
+    elmnt.scrollLeft = 0;
+    elmnt.scrollTop = 1000;
+}
+
+document.getElementById("navButt").onclick = function() {showNav()};
+document.getElementById("closeNavButt").onclick = function() {hideNav()};
+
+function showNav(){
+   document.getElementById("nav").style.display = "block";
+   document.getElementById("navButt").style.display = "none";
+   document.getElementById("closeNavButt").style.display = "inline-block";
+}
+function hideNav(){
+   document.getElementById("nav").style.display = "none";
+   document.getElementById("navButt").style.display = "inline-block";
+   document.getElementById("closeNavButt").style.display = "none";
+}
+
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      document.getElementById("nav").style.display = "none";
+      document.getElementById("closeNavButt").style.display = "none";
+      document.getElementById("navButt").style.display = "inline-block";
+   }
+}
+
+</script>

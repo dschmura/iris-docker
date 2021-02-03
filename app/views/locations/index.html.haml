@@ -1,0 +1,31 @@
+%h1 Listing Locations
+
+    
+%table
+  %tr
+    %th Name
+    %th Latitude
+    %th Longitude
+    %th Description
+    %th Visibility?
+    - if user_signed_in?
+      %th
+      %th
+      %th
+
+  - @locations.each do |location|
+    %tr
+      %td= link_to location.name, location
+      %td= location.latitude
+      %td= location.longitude
+      %td= location.description
+      %td= location.visible
+      - if user_signed_in?
+        %td= link_to 'Show', location
+        %td= link_to 'Edit', edit_location_path(location)
+        %td= link_to 'Destroy', location, :confirm => 'Are you sure?', :method => :delete
+
+%br
+= will_paginate
+- if user_signed_in?
+  = link_to 'New Location', new_location_path

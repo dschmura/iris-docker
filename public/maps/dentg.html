@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental School ground floor</title>
+
+<style>
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+fpbox{
+position:relative;
+display:block;
+width:98%;
+max-width:900px;
+height:auto;
+margin-left:auto;
+margin-right:auto;
+scrollbars:auto;
+}
+
+navbox{
+position:absolute;
+top:1%;
+left:1%;
+z-index:2;
+width:75%;
+max-width:700px;
+margin-left:2%;
+margin-top:2%;
+}
+
+img{
+width:100%;
+}
+
+h1, p{
+position:relative;
+font-size:calc(7px + 2vw);
+padding:.5% 1% 0% 1%;
+}
+
+@media screen and (min-width:1000px) {
+	h1{ font-size: 30px; }
+	p{ font-size: 26px; }
+}
+
+a.nav{text-decoration:none;}
+a.nav:hover{text-decoration:underline;}
+a.nav:focus{text-decoration:underline;}
+
+a.rmdent{
+position:absolute;
+z-index:1;
+}
+a.rmdent:focus{
+ opacity:1;
+ border: double thick gold;
+}
+a.rmdent:hover{
+ opacity:1;
+ border: double thick gold;
+}
+a.dead{color:DarkSlateGrey; font-style:oblique;text-decoration:none;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.dentg005{height:9.9%; width:13%; bottom:16.6%; left:13.3%;}
+a.dentg311{height:6%; width:3.8%; bottom:36.8%; right:36.2%;}
+a.dentg322{height:7.8%; width:13%; top:39.6%; right:13.5%;}
+a.dentg378{height:7.8%; width:13%; top:39.6%; left:36%;}
+a.dentg390{height:7.8%; width:13%; top:48%; left:36%;}
+a.dentg550{height:6%; width:8.4%; top:46.5%; left:18%;}
+a.dentg580{height:3%; width:4%; top:46.5%; left:27%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+<main>
+<fpbox>
+<img src="dentg.jpg"  alt="ground floor dental building. Seven classroom links on this drawing."  />
+
+<navbox>
+<h1>School of Dentistry Ground Floor</h1>
+<nav>
+<p><a class="nav" href="dent1.html">Go to First Floor</a></p>
+<p><a class="nav" href="http://rooms.lsa.umich.edu/classrooms?q%5BDEPT_GRP_eq%5D=SCHOOL_DENTISTRY">List of Dentistry<br>classrooms</a>
+</nav>
+</navbox>
+
+<a class="rmdent dentg005" href="../classrooms/DENTG005" aria-label="room G zero zero five information"></a>
+<a class="rmdent dentg311" href="../classrooms/DENTG311" aria-label="room G three one one information"></a>
+<a class="rmdent dentg322" href="../classrooms/DENTG322" aria-label="room G three two two information"></a>
+<a class="rmdent dentg378" href="../classrooms/DENTG378" aria-label="room G three seven eight information"></a>
+<a class="rmdent dentg390" href="../classrooms/DENTG390" aria-label="room G three nine zero information"></a>
+<a class="rmdent dentg550" href="../classrooms/DENTG550" aria-label="room G five five zero information"></a>
+<a class="rmdent dentg580" href="../classrooms/DENTG580" aria-label="room G five eight zero information"></a>
+</fpbox>
+</main>
+</body>
+</html>

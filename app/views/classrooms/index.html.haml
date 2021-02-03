@@ -1,0 +1,139 @@
+
+.classroom_listing
+  -# =render 'classrooms_jump_to_department'
+
+  %h2 Listing classrooms
+  .row
+    #rooms_search
+      #rooms_search_form.col-md-3.col-sm-3.col-xs-3
+        #rooms_search_results_count
+          = pluralize(@search_count, 'room')
+          met your criteria
+        #rooms_search_instructions
+          Narrow your search by selecting your requirements below
+        #rooms_search_instructions_extended
+          Use the fields and checkboxes below to specify attributes such as minimum seating capacity, type of writing surface, and installed equipment. Then, press the Search button at the bottom to list rooms that meet your requirements.
+
+        = search_form_for @search, :html => {:class => "form-group"} do |f|
+          .form-group
+
+            = f.select :DEPT_GRP_eq, [['All Units',''],['Academic and Budget Affairs', 'ACAD_&_BDGT_AFFAIRS'],['College of LSA','COLLEGE_OF_LSA'], ['College of Pharmacy','COLLEGE_PHARMACY'], ['Ford School of Public Policy', 'SCHOOL_PUB_POLICY'],['Law School', 'LAW_SCHOOL'], ['Museum of Art', 'VP_ACAD_GRAD_STUDY'],['Ross School of Business' ,'SCHOOL_BUS_ADMIN'], ['School of Dentistry', 'SCHOOL_DENTISTRY'],['School of Education', 'SCHOOL_EDUCATION'], ['School of Information', 'SCHOOL_INFORMATION'], ['School of Kinesiology', 'SCHOOL_KINESIOLOGY'],['School for Environment and Sustainability','SCHOOL_NAT_RES_ENVIR'],['School of Nursing','SCHOOL_NURSING'], ['School of Music, Theatre and Dance','SCHOOL_MUSIC'], ['School of Public Health', 'SCHOOL_PUB_HEALTH'],['School of Social Work', 'SCHOOL_SOCIAL_WORK']]
+            //= f.select :DEPT_GRP_eq, [['All Units',''],['College of LSA','COLLEGE_OF_LSA'], ['Law School', 'LAW_SCHOOL'], ['School of Dentistry', 'SCHOOL_DENTISTRY']]
+            %br
+            %br
+            = f.collection_select :building_id_eq, Location.where(:locatable_type => "Building").order("name ASC"),  :id, :name,  {:include_blank => 'All Buildings'}, {:style => "width: 160px;"}
+            -# %a{ "data-original-title" => "Please note, Dennison has been renamed to Weiser Hall.", "data-placement" => "right", :href => "#", :rel => "tooltip", id: "WeiserInfo", class: "fa fa-exclamation-triangle"}
+            -# %a{ "data-original-title" => "Please note, C.C. Little has been renamed to North University Building.", "data-placement" => "right", :href => "#", :rel => "tooltip", id: "WeiserInfo", class: "fa fa-exclamation-triangle"}
+
+            %br
+            %br
+            = f.label :room_number
+            = f.text_field :facility_code_heprod_cont, :size => 7, :placeholder => "USB2230", :style => ""
+            %br
+            = f.label :podium_computer
+            = f.check_box :podium_computer_any_or_podium_computer_mac_or_podium_computer_windows_true, include_hidden: false
+            %br
+            = f.label :computer_classroom
+            = f.check_box :computer_classroom_any_or_computer_classroom_mac_or_computer_classroom_windows_true, include_hidden: false
+            %br
+            = f.label "Video Projection"
+            = f.check_box :projection_16mm_film_or_projection_35mm_file_or_projection_digital_data_video_or_projection_traditional_slide_true, include_hidden: false
+            %br
+            = f.label "Blu-Ray/DVD Player"
+            = f.check_box :dvd_player_regular_or_dvd_player_blueray_true, include_hidden: false
+            %br
+            = f.label "Sound Amplification: Program"
+            = f.check_box :sound_amplification_true, include_hidden: false
+            %br
+            = f.label "Sound Amplification: Voice"
+            = f.check_box :sound_amplification_voice_true, include_hidden: false
+            %br
+            = f.label :document_camera_
+            = f.check_box :document_camera_true, include_hidden: false
+            %br
+            = f.label :lecture_capture
+            = f.check_box :lecture_capture_true, include_hidden: false
+            %br
+            = f.label :video_conferencing
+            = f.check_box :video_conferencing_true, include_hidden: false
+            %br
+            %br
+            %label{:for => "amount"} Student Capacity
+            %br
+            = f.text_field :student_capacity_gteq, :size => 3, :placeholder => '1', :style => "width: 34px;  float: left;", :id => "my_min"
+            %input#slider-range.slider.slider-horizontal{"data-slider-max" => "1100", "data-slider-min" => "1", "data-slider-orientation" => "horizontal", "data-slider-selection" => "after", "data-slider-step" => "1", "data-slider-tooltip" => "show", "data-slider-value" => [@search.student_capacity_gteq, @search.student_capacity_lteq], name: "q2", type: "text"}
+            = f.text_field :student_capacity_lteq, :size => 3, :placeholder => '250', :style => "width: 34px; ",:id => "my_max"
+            %br
+            %br
+            = f.label "results per page"
+            = select_tag :per_page, options_for_select([15,25,50,100], @per_page.to_i), :style => "width: 60px;"
+            %br
+            %br
+            = button_tag(type: 'submit', class: "btn btn-lg btn-default") do
+              %span.fa.fa-search
+              Search
+            %br
+            %br
+
+            = button_tag(type: 'reset', class: "btn  btn-xs btn-danger reset_button", value: "Reset") do
+              %span.fa.fa-refresh
+              Reset
+            -#- if policy(@classroom).update?
+            - if user_signed_in?
+              - if current_user.admin?
+                %br
+                %br
+                / Button trigger modal
+                %buttonbtn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", type: "button"} Admin
+
+
+                / Modal
+                #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+                  .modal-dialog
+                    .modal-content
+                      .modal-header
+                        %h3 Administrative Functions
+                        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+                        %h4#myModalLabel.modal-title
+                      .modal-body
+                        = link_to 'New Classroom', new_classroom_path, :class => 'btn btn-mini'
+                        %br
+                        %hr
+                        = link_to 'Import Room Schedule Contacts', room_schedule_contacts_path, :class => 'btn btn-mini'
+                        %br
+                        %hr
+                        -#Import Attributes
+                          = form_tag import_classrooms_path, multipart: true do
+                            =file_field_tag :file
+                            %br
+                            = submit_tag "Import"
+
+                          %hr
+                          Set Visible
+                          = form_tag import_classrooms_path, multipart: true do
+                            =text_field_tag :file
+                            %br
+                            = submit_tag "Import"
+                      .modal-footer
+                        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+                        %button.btn.btn-primary{type: "button"} Save changes
+
+
+
+      #rooms_results
+        = render :partial => 'classroom_results'
+  - if user_signed_in?
+    - if current_user.admin?
+      Import Attributes
+      = form_tag import_classrooms_path, multipart: true do
+        =file_field_tag :file
+        %br
+        = submit_tag "Import"
+
+
+:javascript
+  $('.slider').slider().on('slide', function(ev){
+    $('#my_min').val(ev.value[0]);
+    $('#my_max').val(ev.value[1]);
+  });
+  $('.reset_button').click(function() { $('#classroom_search')[0].reset() })

@@ -1,0 +1,288 @@
+<DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>North University First Floor</title>
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+padding:2% 0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.9);
+width:45%;
+height:auto;
+border: thin solid black;
+}
+
+hr{
+width:70%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding:3%;
+}
+.navlabel{
+ color:black;
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ font-style:oblique;
+ position:relative;
+ text-align:center;
+ padding:3%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:2% auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+#fpaudio{
+position:absolute;
+top:10%;
+left:10%;
+width:60%;
+height:60%;
+overflow:hidden;
+z-index:-10;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  margin:auto;
+  width:90%;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  .navlabel{font-size:x-small;}
+  button{font-size:small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:130%;}
+     #nav{width:60%;}
+  }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:230px;}
+    #fpbox{width:90%;}
+  }
+}
+
+/* dimensions and positions for all the links */
+
+a.nub1505{height:9%; width:9%; top:38.2%; left:28%;}
+a.nub1507{height:5%; width:9%; top:32.7%; left:27.9%;}
+a.nub1508{height:6%; width:9.7%; top:32%; left:12.7%;}
+a.nub1509{height:4.9%; width:9%; top:27.5%; left:27.8%;}
+a.nub1512{height:6%; width:9.7%; top:25.5%; left:12.6%;}
+a.nub1518{height:8.8%; width:9.7%; top:16.2%; left:12.5%;}
+a.nub1528{height:12%; width:25%; top:3%; left:12.5%;}
+a.nub1544{height:13%; width:17%; top:17%; right:35%;}
+a.nub1567{height:9.5%; width:14%; bottom:40%; right:15%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+
+<div class="page">
+<header>
+<h1>North University Building First Floor</h1>
+</header>
+
+<nav>
+<button type="button" id="navButt" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
+
+<ul id="nav" style="display:none;">
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the first floor">This is the first floor</a>
+</li>
+<li class="text">
+<a href="nub2.html">
+Second Floor</a>
+</li>
+<li class="text">
+<a href="nub3.html">
+Third Floor</a>
+</li>
+<li class="navlabel" tabindex="0">no classrooms on the fourth and fifth floors</li>
+<hr aria-hidden="true">
+<li class="text">
+<a href="index.html" aria-label="central campus map">
+Central Campus</a>
+</li>
+<li class="text">
+<a href="/" aria-label="M classrooms home page">
+MClassrooms Home</a>
+</li>
+</ul>
+</nav>
+
+<!-- floor plan -->
+<main>
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="nub1.jpg" alt="first floor north university building. Nine classroom links on this drawing." />
+
+<!-- links to classroom data  -->
+
+<a class="rm nub1505" href="../classrooms/NUB1505" aria-label="room one five zero five information"></a>
+<a class="rm nub1507" href="../classrooms/NUB1507" aria-label="room one five zero seven information"></a>
+<a class="rm nub1508" href="../classrooms/NUB1508" aria-label="room one five zero eight information"></a>
+<a class="rm nub1509" href="../classrooms/NUB1509" aria-label="room one five zero nine information"></a>
+<a class="rm nub1512" href="../classrooms/NUB1512" aria-label="room one five one two information"></a>
+<a class="rm nub1518" href="../classrooms/NUB1518" aria-label="room one five one eight information"></a>
+<a class="rm nub1528" href="../classrooms/NUB1528" aria-label="room one five two eight information"></a>
+<a class="rm nub1544" href="../classrooms/NUB1544" aria-label="room one five four four information"></a>
+<a class="rm nub1567" href="../classrooms/NUB1567" aria-label="room one five six seven information"></a>
+
+</div>
+</div>
+</main>
+</div>
+
+</body>
+</html>
+
+<script>
+
+var elmnt = document.getElementById("scrollbox");
+window.onload=function scrolldown() {
+    elmnt.scrollLeft = 0;
+    elmnt.scrollTop = 0;
+}
+window.onorientationchange = function() { 
+    elmnt.scrollLeft = 0;
+    elmnt.scrollTop = 0;
+}
+
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()}
+
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+   x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+
+</script>

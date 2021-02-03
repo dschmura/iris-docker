@@ -1,0 +1,31 @@
+%p#notice= notice
+
+%p
+  %b Location type:
+  = @location_type
+%p
+  %b Latitude:
+  = @location.latitude
+%p
+  %b Longitude:
+  = @location.longitude
+%p
+  %b Name:
+  = @location.name
+%p
+  %b Abstract:
+  = @location.description
+
+%p
+  %b Visible?:
+  = @location.visible
+
+-#= gmaps("markers" => {"data" => @gmap_coordinates}, "map_options" => { "zoom" => 18, "auto_adjust" => true, "auto_zoom" => false})
+
+- if user_signed_in?
+  - if current_user.admin?
+    = link_to 'Edit', edit_location_path(@location)
+    \|
+= link_to 'List', locations_path
+
+

@@ -1,0 +1,12 @@
+%legend New Classroom
+
+= render 'form'
+
+= link_to 'Back', classrooms_path
+
+-#
+  :javascript
+    $('#classroom_location_id').change( function() {
+      $('#classroom_facility_code_heprod').val(this.selectedIndex);
+    } );
+

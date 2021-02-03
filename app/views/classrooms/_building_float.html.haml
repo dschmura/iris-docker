@@ -1,0 +1,27 @@
+#building_float
+  = link_to image_tag(@building_image, :class => "img-rounded"), "../classrooms?utf8=✓&q%5Bbuilding_id_eq%5D=#{@building.id}"
+  %p
+    %b
+
+      %a{"data-original-title" => "#{departmental_room?}", "data-placement" => "right", :rel => "tooltip", :style => "color: black;"}
+        = truncate(departmental_room?, :length => 20)
+  
+  %b Building:
+  %a{"data-original-title" => "#{@building.name}", "data-placement" => "right", :rel => "tooltip", :style => "color: black;"}
+    = link_to @building.name, "../classrooms?utf8=✓&q%5Bbuilding_id_eq%5D=#{@building.id}"
+  %p  
+    %b Name:
+
+    %a{"data-original-title" => "#{@classroom.location.name}", "data-placement" => "right", :rel => "tooltip", :style => "color: black;"}
+      = truncate(@classroom.location.name, :length => 15)
+
+  %p
+    %b Facility ID:
+    %a{"data-original-title" => "Load the image for this room.", "data-placement" => "right", :href => "#{@classroom.location.picture.url(:show).to_s}", :rel => "tooltip", style: "color: black;"}
+      = @classroom.facility_code_heprod
+
+  %p
+    %b Capacity:
+    = @classroom.student_capacity
+  %p
+    = link_to "Show all results", :back

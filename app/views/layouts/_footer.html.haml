@@ -1,0 +1,63 @@
+
+
+%footer
+  %nav
+    .navbar
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+      = link_to footer_logo, 'https://lsa.umich.edu/technology-services', target: '_blank'
+      .navbar-collapse.collapse
+        %ul.nav.navbar-nav.center-block
+
+          %li
+            = link_to "Home", root_path
+          %li
+            = link_to "About", about_path
+          %li
+            = link_to "Classrooms", classrooms_path
+          %li
+            = link_to "FAQs", faq_path
+          %li
+            = link_to "Support", support_path
+
+    = link_to footer_logo_um, "http://www.umich.edu", :target => "_blank"
+
+  %br
+    = link_to "Copyright The Regents of the University of Michigan, 2018", "http://www.umich.edu", :target => '_blank'
+    %br
+    - if user_signed_in?
+      .btn-group.dropup
+
+        %a{:class => 'btn btn-default btn-xs  dropdown-toggle', "data-toggle" => 'dropdown', :href => '#'}
+          = current_user.name || current_user.email
+          %span{:class => 'caret'}
+        %ul.dropdown-menu
+          %li
+            %i.fa.fa-user
+              = link_to "Profile", edit_user_path(current_user.id)
+
+          - if current_user.admin?
+            %li
+              %i.fa.fa-cogs
+                = link_to('Admin', users_path)
+            %li
+              %i.fa.fa-phone
+                = link_to('Import Contacts', room_schedule_contacts_path)
+          %li
+            %i.fa.fa-sign-out
+              = link_to 'Sign out', destroy_user_session_path, :method=>'delete'
+
+      |
+      = link_to "Privacy Policy", privacy_path
+    - else
+      = link_to "ISS Login", new_user_session_path
+      |
+      = link_to "Privacy Policy", privacy_path
+
+
+
+-# = yield :scripts

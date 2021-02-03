@@ -1,0 +1,27 @@
+
+%br
+%br
+.row.pull-right
+  #quick_links
+    %button#myPopover.btn.btn-default.btn-sm{"data-content" => "#{link_to "View Room Schedule", "https://csprod.dsc.umich.edu/services/facilitycalendar?facilityid=#{@classroom.facility_code_heprod }", :target => "_blank" }", "data-toggle" => "popover", :title => "Room Schedule<a  style='margin-left: 30px;' class ='pull-right' onclick='$(this).parent().parent().hide()'>X</a>", :type => "button", "data-html" => :true, "data-placement" => "bottom"}
+      .fa.fa-calendar
+        Room Schedule
+    %button#myPopover.btn.btn-default.btn-sm{"data-content" => "#{support_contact_email}", "data-toggle" => "popover", :title => "Support Contact <a  style='margin-left: 30px;' class ='pull-right' onclick='$(this).parent().parent().hide()'>X</a>", :type => "button", "data-html" => :true, "data-placement" => "bottom"}
+      .fa.fa-wrench
+        Contact Support
+
+    %button#myPopover.btn.btn-default.btn-sm{"data-content" => "#{floor_plan}", "data-toggle" => "popover", :title => "Floor Map <a  style='margin-left: 30px;' class ='pull-right' onclick='$(this).parent().parent().toggle()'>X</a>", :type => "button", "data-html" => :true, "data-placement" => "bottom"}
+      .fa.fa-building
+        Floor Map
+
+
+:javascript
+
+  $('[data-toggle="popover"]').each(function () {
+  var button = $(this);
+    button.popover().on('shown.bs.popover', function() {
+    button.data('bs.popover').tip().find('[data-dismiss="popover"]').on('click', function () {
+      button.popover('toggle');
+      });
+    });
+  });

@@ -1,0 +1,302 @@
+ <!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mason Complex Ground Floor</title>
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+padding:2% 0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.9);
+width:45%;
+height:auto;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+.navlabel{
+ color:black;
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ font-style:oblique;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+#fpaudio{
+position:absolute;
+top:10%;
+left:10%;
+width:60%;
+height:60%;
+overflow:hidden;
+z-index:-10;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:120%;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  button{font-size:small;}
+  .navlabel{font-size:x-small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:150%;}
+     #nav{width:60%}
+  }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:225px;}
+    #fpbox{width:140%;}
+  }
+}
+
+/* dimensions and positions for all the links */
+
+a.aha{height:14%; width:18%; bottom:25%; right:29%;}
+a.ahb{height:14%; width:18%; bottom:25%; left:30%;}
+a.ahc{height:11.5%; width:18%; bottom:39.5%; right:29%;}
+a.ahd{height:11.5%; width:18%; bottom:39.5%; left:30%;}
+a.ahg026{height:7%; width:8%; bottom:17.8%; left:39.5%;}
+a.ahg040{height:7%; width:8%; bottom:17.8%; left:31%;}
+a.ahg115{height:9.7%; width:9.2%; bottom:1.8%; left:11%;}
+a.ahg127{height:9%; width:9.2%; bottom:11.9%; left:11%;}
+a.ahg128{height:5.8%; width:6.3%; bottom:8.8%; left:22.2%;}
+a.ahg144{height:7.5%; width:6.3%; bottom:16.1%; left:22.5%;}
+a.ahg160{height:5.5%; width:7.5%; bottom:30%; left:22%;}
+a.ahg168{height:7%; width:7.5%; bottom:36%; left:22%;}
+a.mhg421b{height:4%; width:8%; top:4.5%; right:12.5%;}
+a.mhg437{height:6.4%; width:8%; top:23.2%; right:12.5%;}
+a.mhg449{height:5.8%; width:8%; top:30%; right:12.5%;}
+a.mhg463{height:6.4%; width:8%; top:36.2%; right:12.5%;}
+a.hhg634{height:4.5%; width:10.5%; bottom:18.9%; right:17%;}
+a.ahg155{height:29.1%; width:7%; top:48.8%; left:11.5%;}
+a.ahg219{height:10.8%; width:8%; top:26.5%; left:11.5%;}
+a.mhg333{height:4.5%; width:16.5%; top:9.6%; left:39%;}
+a.mhg340{height:5%; width:30%; top:17.2%; left:30%;}
+a.mhg353{height:5%; width:8%; top:9.6%; right:35%;}
+a.hhg664{height:10.5%; width:12.1%; bottom:2.9%; right:17.2%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+
+<div class="page">
+<header>
+<h1>Mason Complex Ground Floor</h1>
+</header>
+
+<nav>
+<button type="button" id="navButt" aria-expanded="false" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
+
+<ul id="nav" style="display:none;">
+
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the ground floor of mason hall.">This is the ground floor</a>
+</li>
+<li class="text"><a href="mh1.html" aria-label="first floor, mason hall">First Floor Mason</a></li>
+<li class="text"><a href="mh2.html" aria-label="second floor, mason hall">Second Floor Mason</a></li>
+<li class="text"><a href="mh3.html" aria-label="third floor, mason hall">Third Floor Mason</a></li>
+<hr aria-hidden="true">
+<li class="text"><a href="ahg.html" aria-label="Angell Hall, ground floor">Angell Hall Ground</a></li>
+<li class="text"><a href="hhg.html" aria-label="Haven Hall, ground floor">Haven Hall Ground</a></li>
+<hr aria-hidden="true">
+<li class="text"><a href="index.html" aria-label="central campus map">Central Campus</a></li>
+<li class="text"><a href="/" aria-label="M Classrooms Home Page">MClassrooms Home</a></li>
+</ul>
+</nav>
+
+<!-- floor plan -->
+<main>
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="ahplexg.jpg" alt="ground floor of the angell mason haven hall complex, seventeen classroom and five service links on this drawing." />
+
+<!-- links to classroom data  -->
+
+<a class="rm mhg421b" href="../classrooms/MHG421B" aria-label="room G four two one B mason hall information"></a>
+<a class="rm mhg437" href="../classrooms/MHG437" aria-label="room G four three seven mason hall information"></a>
+<a class="rm mhg449" href="../classrooms/MHG449" aria-label="room G four four nine mason hall information"></a>
+<a class="rm mhg463" href="../classrooms/MHG463" aria-label="room G four six three mason hall information"></a>
+<a class="rm hhg634" href="../classrooms/HHG634" aria-label="room G six three four haven hall information"></a>
+<a class="rm aha" href="../classrooms/AHA" aria-label="auditorium A as in alpha, angell hall information"></a>
+<a class="rm ahb" href="../classrooms/AHB" aria-label="auditorium B as in bravo, angell hall information"></a>
+<a class="rm ahc" href="../classrooms/AHC" aria-label="auditorium C as in charlie, angell hall information"></a>
+<a class="rm ahd" href="../classrooms/AHD" aria-label="auditorium D as in delta, angell hall information"></a>
+<a class="rm ahg026" href="../classrooms/AHG026" aria-label="room G zero two six tisch hall information"></a>
+<a class="rm ahg040" href="../classrooms/AHG040" aria-label="room G zero four zero tisch hall information"></a>
+<a class="rm ahg115" href="../classrooms/AHG115" aria-label="room G one one five angell hall information"></a>
+<a class="rm ahg127" href="../classrooms/AHG127" aria-label="room G one two seven angell hall information"></a>
+<a class="rm ahg128" href="../classrooms/AHG128" aria-label="room G one two eight angell hall information"></a>
+<a class="rm ahg144" href="../classrooms/AHG144" aria-label="room G one four four angell hall information"></a>
+<a class="rm ahg160" href="../classrooms/AHG160" aria-label="room G one six zero angell hall information"></a>
+<a class="rm ahg168" href="../classrooms/AHG168" aria-label="room G one six eight angell hall information"></a>
+<a class="rm ahg155" href="https://lsa.umich.edu/technology-services" target="_blank" aria-label="opens a new tab. LSA Technology Services angell hall room G one five five."></a>
+<a class="rm ahg219" href="https://lsa.umich.edu/technology-services/services/events-media/live-event-support.html" target="_blank" aria-label="opens a new tab. Technology services video conferencing angell hall room G two one nine."></a>
+<a class="rm mhg333" href="https://www.digitalstudies.umich.edu/" target="_blank" aria-label="opens a new tab. The digital studies institute mason hall room G three three three."></a>
+<a class="rm mhg340" href="https://lsa.umich.edu/technology-services/services/equipment-loans-reservations.html" target="_blank" aria-label="opens a new tab. Technology services equipment loans mason hall room G three four zero."></a>
+<a class="rm hhg664" href="https://ssd.umich.edu/" target="_blank" aria-label="opens a new tab. Services for students with disabilities haven hall room G six six four."></a>
+
+</div>
+</div>
+</main>
+</div>
+
+</body>
+</html>
+
+<script>
+
+window.onload=function scrolldown() {
+    var elmnt = document.getElementById("scrollbox");
+    elmnt.scrollLeft = 1000;
+    elmnt.scrollTop = 0;
+}
+
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
+
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+      x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+
+</script>

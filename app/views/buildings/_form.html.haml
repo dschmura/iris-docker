@@ -1,0 +1,253 @@
+%container
+= form_for @building, :html => {:multipart => true} do |f|
+  -if @building.errors.any?
+    .alert.alert-danger.fade.in
+      %a.close{"data-dismiss" => "alert", :href => "#"} ×
+      %ul
+      - @building.errors.full_messages.each do |msg|
+        %li
+          = msg
+  .row
+    .col-md-6
+      .input-group.input-group-sm.col-md-8
+        %span.input-group-addon Name:
+        = f.fields_for :location do |loc|
+          = loc.text_field :name, :placeholder => 'Angell Hall', class: "form-control"
+        %br
+
+    = f.fields_for :location do |loc|
+      = label_tag(:visible)
+      = loc.check_box :visible
+
+      .input-group.input-group-sm.col-md-5
+        %span.input-group-addon Building Short Code:
+        = f.text_field :building_short_code, :placeholder => 'BR', class: "form-control"
+
+
+      %br
+      .input-group.input-group-sm.col-md-10
+        %span.input-group-addon Address:
+        = f.text_field :address, :placeholder => "1234 Main Way", class: "form-control"
+
+      %br
+      .input-group.input-group-sm.col-md-10
+        %span.input-group-addon Address 2:
+        = f.text_field :address2,  :placeholder => "Central Campus", class: "form-control"
+
+      %br
+      .input-group.input-group-sm.col-md-4
+        %span.input-group-addon City:
+        = f.text_field :city,  :placeholder => "Ann Arbor", :input_html => { value: 'Ann Arbor',:size => 25 }, class: "form-control"
+
+      %br
+      .input-group.input-group-sm.col-md-3
+        %span.input-group-addon State:
+        = f.text_field :state,  :placeholder => "MI", :input_html => { value: 'MI',:size => 3 }, class: "form-control"
+
+      %br
+      .input-group.input-group-sm.col-md-3
+        %span.input-group-addon ZIP:
+        = f.text_field :zip,  :placeholder => "48109-1234", :input_html => { value: '48109', :size => 10 }, class: "form-control", :size => 10
+      %br
+      = f.fields_for :location  do |loc|
+        %span.col-md-10
+          Description:
+          = loc.text_area(:description, columns: 30, rows: 4, class: "form-control")
+        %br
+        %br
+
+      %span.col-md-10
+        History:
+      = f.text_field :history,  :placeholder => "Optional building history (if available)"
+    .col-md-6
+      #location_image_form
+        -if @building.location.picture_file_name != nil
+          = image_tag @building.location.picture.url.to_s
+          %p#update_image
+            %b Change the image for this building.
+            %br
+            %br
+            = f.fields_for :location do |loc|
+              = loc.file_field :picture
+        - else
+          %p
+            %b Upload an image for this building.
+            %br
+            %br
+            = f.fields_for :location do |loc|
+              = loc.file_field :picture
+        %hr
+        #location_image_form
+          -if @building.location.building_sign_file_name != nil
+            = image_tag @building.location.building_sign.url(:medium).to_s
+            %p#update_image
+              %b Upload a building sign for this building.
+              %br
+              %br
+              = f.fields_for :location do |loc|
+                -# paperclip method
+                = loc.file_field :building_sign
+          - else
+            %p
+              %b Upload a building sign for this building.
+              %br
+              %br
+              = f.fields_for :location do |loc|
+                -# paperclip method
+                = loc.file_field :building_sign
+          = f.fields_for :location  do |loc|
+            #maptest.gmap3
+            %p.clearfix
+            [ drag & drop the marker to update latitude & longitude
+
+            .input-group.input-group-sm.col-md-5
+              %span.input-group-addon Lat:
+              = loc.text_field :latitude,  class: "form-control building_location_attributes_latitude", id: " building_location_attributes_latitude"
+            %br
+
+            .input-group.input-group-sm.col-md-5
+              %span.input-group-addon Long:
+              = loc.text_field :longitude,  class: "form-control  building_location_attributes_longitude", id: ""
+
+            %b
+              Latitude:
+              %span#building_location_attributes_latitude_text
+            %br
+            %b
+              Longitude
+              %span#building_location_attributes_longitude_text
+
+  %hr
+  .row
+    .actions
+      = f.button :submit
+      |
+      = link_to "Cancel", @building
+
+:javascript
+  $(document).ready(function(){
+    // If there is a latitude already, display the map without geolocation using the
+    // existing lat/long
+    if($('.building_location_attributes_latitude').val().length !=0)
+    {
+      $('#building_location_attributes_latitude_text').html(#{@building.location.latitude.to_s})
+      $('#building_location_attributes_longitude_text').html(#{@building.location.longitude.to_s})
+     //alert("There is latitude.");
+     $('#maptest').gmap3({
+     marker: {
+              latLng: [#{@building.location.latitude.to_s},#{@building.location.longitude.to_s}],
+              options: {
+                draggable: true,
+              },
+              events: {
+                dragend: function (map, event) {
+                  var myLatLng = event.latLng;
+                  var lat = myLatLng.lat();
+                  var lng = myLatLng.lng();
+                  $('.building_location_attributes_latitude').val(lat);
+                  $('.building_location_attributes_longitude').val(lng);
+                  $('#building_location_attributes_latitude_text').html(lat)
+                  $('#building_location_attributes_longitude_text').html(lng)
+
+                }
+               }
+              },
+     map:{
+
+           options:{
+             center:[#{@building.location.latitude.to_s},#{@building.location.longitude.to_s}],
+             zoom:16,
+             mapTypeControl: true,
+             mapTypeControlOptions: {
+               style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+             },
+             navigationControl: true,
+             scrollwheel: true,
+             streetViewControl: true
+           }
+         }
+       });
+    }
+    else
+    {
+    // If there the latitude does not exist
+     $('#maptest').gmap3({
+       getgeoloc: {
+         callback: function (latLng) {
+           //check to see if geolocation
+           if (latLng) {
+             $(this).gmap3({
+               marker: {
+                 latLng: latLng,
+                 options: {
+                   draggable: true,
+                 },
+                 events: {
+                   dragend: function (map, event) {
+                     var myLatLng = event.latLng;
+                     var lat = myLatLng.lat();
+                     var lng = myLatLng.lng();
+                     $('.building_location_attributes_latitude').val(lat);
+                     $('.building_location_attributes_longitude').val(lng);
+
+                     $('#building_location_attributes_latitude_text').html(lat)
+                     $('#building_location_attributes_longitude_text').html(lng)
+
+                   }
+                 }
+               },
+               map: {
+                 options: {
+                   zoom: 17
+
+                 }
+               }
+             });
+           } else {
+           // if no geolocation display the map centered on the diag.
+              alert("Please drap the map marker to select the location");
+             $('#maptest').gmap3({
+                  marker: {
+                             latLng: [42.277092, -83.738212],
+                               options: {
+                                 draggable: true,
+                               },
+                               events: {
+                                 dragend: function (map, event) {
+
+                                   var myLatLng = event.latLng;
+                                   var lat = myLatLng.lat();
+                                   var lng = myLatLng.lng();
+                                   $('.building_location_attributes_latitude').val(lat);
+                                   $('.building_location_attributes_longitude').val(lng);
+                                   $('#building_location_attributes_latitude_text').html(lat)
+                                   $('#building_location_attributes_longitude_text').html(lng)
+
+
+
+                               },
+                             },
+                           },
+                  map:{
+
+                        options:{
+                          center:[42.277092, -83.738212],
+                          zoom:16,
+                          mapTypeControl: true,
+                          mapTypeControlOptions: {
+                            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+                          },
+                          navigationControl: true,
+                          scrollwheel: true,
+                          streetViewControl: true
+                        }
+                      }
+                    });
+
+           }
+         }
+       }
+
+     });
+    }
+  });

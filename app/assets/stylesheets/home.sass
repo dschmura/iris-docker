@@ -1,0 +1,133 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@mixin rounded-corners($radius: 10px)
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+
+@mixin transparent($transparency: 0.5, $trans: 50)
+  zoom: 1
+  filter: alpha(opacity=$trans)
+  opacity: $transparency
+
+
+#homeCarousel
+  .carousel-inner
+    padding: 0
+    position: relative
+    img
+      height: 300px
+      min-height: 300px
+      max-height: 300px
+      min-width: 1200px
+      width: 1500px
+      overflow: hidden
+  .carousel-control
+    top: 125px
+
+#home_search__by_department_links
+  h2
+    color: #4C4C4C
+
+  margin-bottom: 2em
+
+  //text-align: center
+  ul
+    li
+      float: left
+      list-style-type: none
+      min-height: 80px
+      height: auto
+      display: block
+      clear: left
+      a
+        text-decoration: none
+        font-size: 140%
+        display: block
+        padding: 0.5em
+        @include transparent(0.7, $trans: 70)
+
+        &:hover
+          //color: #fff
+          //background: #FEC70C
+          @include transparent(1.0, $trans: 100)
+
+#home_search_all
+  clear: both
+  margin-top: 1em
+  text-align: center
+  ul
+    //text-align: center
+    //float: left
+
+    li
+      clear: both
+      float: left
+      list-style-type: none
+      margin-bottom: 2em
+      //width: 26%
+      min-height: 20px
+      height: 20px
+      //min-width: 185px
+      //margin-left: 2%
+      padding: 1% 0 4% 0
+      background-color: #979170
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#979170), to(#979170), color-stop(0.5, #80805A))
+      display: block
+      @include rounded-corners($radius: 12px)
+      a
+
+        text-decoration: none
+        color: #fff
+        font-size: 140%
+        display: block
+
+      &:hover
+        background: #FEC70C
+        background-color: #6188D5
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#6188D5), to(#6188D5), color-stop(0.5, #6188D5))
+        @include transparent(0.8, $trans: 80)
+
+.content
+  .row-fluid
+    #homeCarousel.carousel.slide
+      margin: -2em
+
+#main_text
+  padding: 2em
+
+.legacy-crdb
+  background-color:  #ebf8ff
+  padding: 2em
+  font-size: 1.2em
+  width: 90%
+  @include rounded-corners($radius: 12px)
+  h1, h4
+    font-size: 1.5em
+    margin-right: auto
+    margin-left: auto
+    text-align: center
+
+
+.covid-19
+  background-color: #feb2b2
+  padding: 1em
+  font-size: 1.1em
+  width: 90%
+  margin-top: -10rem
+  color: #2d3748
+  position: relative
+  z-index: 1000
+
+  @include rounded-corners($radius: 12px)
+  h1, h4
+    color: #742a2a
+    font-size: 1.5em
+    margin-right: auto
+    margin-left: auto
+    text-align: center
+  p
+    margin-top: 2rem
+  h4
+    font-size: 1.3em

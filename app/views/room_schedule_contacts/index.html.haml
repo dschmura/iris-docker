@@ -1,0 +1,27 @@
+%h1 Listing room_schedule_contacts
+
+%table
+  %tr
+
+    %th
+    %th
+    %th
+
+  -#- @room_schedule_contacts.each do |room_schedule_contact|
+  -#  %tr
+  -#
+  -#    %td= link_to 'Show', room_schedule_contact
+  -#    %td= link_to 'Edit', edit_room_schedule_contact_path(room_schedule_contact)
+  -#    %td= link_to 'Destroy', room_schedule_contact, method: :delete, data: { confirm: 'Are you sure?' }
+
+  %br
+
+  = link_to 'New Room schedule contact', new_room_schedule_contact_path
+
+
+%h2 Import Contacts
+
+= form_tag import_room_schedule_contacts_path, multipart: true do
+  =file_field_tag :file
+  = submit_tag "Import"
+  

@@ -1,0 +1,91 @@
+%i.fa.fa-apple
+
+<div id="test1-result"></div>  
+<div id="test1" class="gmap3"></div>
+
+%br
+%br  
+  
+
+%h1 IRIS Development Page
+
+#image_test
+
+
+  
+
+%p
+  This is the landing page for the IRIS Development Project.  This page will be populated with information about the development of the site.
+
+= link_to "Old Classroom Database site", "http://rooms.lsa.umich.edu", :target => "_blank"
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #f8f5e4">
+f8f5e4
+</div>
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #76a6c9">
+76a6c9
+</div>
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #979170">
+979170
+</div>
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #DDD7AF">
+DDD7AF
+</div>
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #e4debd">
+e4debd
+</div>
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #b1b491">
+b1b491
+</div>
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #e7e8e0">
+e7e8e0
+</div>
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #0f3b5a">
+0f3b5a
+</div>
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #c9bf98">
+c9bf98
+</div>
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #898c6e">
+898c6e
+</div>
+
+<div style="float: left; margin: 1em; width:200px; height:200px; background-color: #ffc">
+ffc
+</div>
+
+:javascript
+  
+  
+    $('#test1').gmap3({
+      getgeoloc:{
+        callback : function(latLng){
+          if (latLng){
+            
+            $(this).gmap3({
+              marker:{ 
+                latLng:latLng
+              },
+              map:{
+                 options:{
+                   zoom: 15
+                 }
+               }
+            });
+          } else {
+            $('#test1-result').html('not localised !');
+          }
+        }
+      }
+    });
+    
+ 

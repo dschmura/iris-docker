@@ -1,0 +1,25 @@
+room      equip added
+
+AHG160    doccam interactivepen blu-ray	
+
+MH1401    doccam
+MH2427    doccam
+
+MLB2104   pcwindows doccam interactivepen
+MLB2112   pcwindows doccam interactivepen
+MLB2114   doccam interactivepen
+MLB2202   doccam interactivepen
+MLB2212   doccam interactivepen
+MLB2402   doccam interactivepen
+MLB2412   doccam interactivepen
+MLBB134   doccam interactivepen
+MLBB135   doccam interactivepen
+MLBB137   doccam interactivepen
+
+STB2022   doccam
+STB3000   pcwindows
+STB4000   pcwindows doccam
+STB5000   pcwindows
+STB6000   pcwindows
+
+WH242     pcwindows doccam

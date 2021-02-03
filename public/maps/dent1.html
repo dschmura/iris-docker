@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dental School first floor</title>
+
+<style>
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+fpbox{
+position:relative;
+display:block;
+width:98%;
+max-width:900px;
+height:auto;
+margin-left:auto;
+margin-right:auto;
+scrollbars:auto;
+}
+
+navbox{
+position:absolute;
+top:1%;
+left:1%;
+z-index:2;
+width:75%;
+max-width:700px;
+margin-left:2%;
+margin-top:2%;
+}
+
+img{
+width:100%;
+}
+
+h1, p{
+position:relative;
+font-size:calc(7px + 2vw);
+padding:.5% 1% 0% 1%;
+}
+
+@media screen and (min-width:1000px) {
+	h1{ font-size: 30px; }
+	p{ font-size: 26px; }
+}
+
+a.nav{text-decoration:none;}
+a.nav:hover{text-decoration:underline;}
+a.nav:focus{text-decoration:underline;}
+
+a.rmdent{
+position:absolute;
+z-index:1;
+}
+a.rmdent:focus{
+ opacity:1;
+ border: double thick gold;
+}
+a.rmdent:hover{
+ opacity:1;
+ border: double thick gold;
+}
+a.dead{color:DarkSlateGrey; font-style:oblique;text-decoration:none;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.dentg1033{height:6%; width:8.5%; bottom:20%; left:18.1%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+<main>
+<fpbox>
+<img src="dent1.jpg"  alt="first floor dental building. One classroom link on this drawing."  />
+
+<navbox>
+<h1>School of Dentistry First Floor</h1>
+<nav>
+<p><a class="nav" href="dentg.html">Go to ground floor</a></p>
+<p><a class="nav" href="http://rooms.lsa.umich.edu/classrooms?q%5BDEPT_GRP_eq%5D=SCHOOL_DENTISTRY">List of Dentistry<br>classrooms</a>
+</nav>
+</navbox>
+<a class="rmdent dentg1033" href="../classrooms/DENT1033" aria-label="room one zero three three information"></a>
+</fpbox>
+</main>
+</body>
+</html>

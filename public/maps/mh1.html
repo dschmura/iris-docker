@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mason Complex First Floor</title>
+
+<style>
+
+/* css common to all pages */
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background-color:ivory;
+}
+
+#nav{
+position:absolute;
+right:0px;
+margin-top:0%;
+padding:2% 0%;
+z-index:5;
+text-align:center;
+background-color: rgba(255,255,255,0.9);
+width:45%;
+height:auto;
+border: thin solid black;
+}
+
+hr{
+width:80%;
+color:lightgrey;
+}
+
+button{
+ position:absolute;
+ display:inline-block;
+ right:0;
+ top:0;
+ margin:0% 0% 1% 0%;
+ font-size:large;
+}
+
+h1{
+ position:relative;
+ display:inline-block;
+ left:0;
+ top:0;
+ margin: 0% 0% 1% 0%;
+ font-size:x-large;
+ width:45%;
+}
+
+.text{
+ display:block;
+ font-size:x-large;
+ font-weight:bold;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+.navlabel{
+ color:black;
+ display:block;
+ font-size:large;
+ font-weight:bold;
+ font-style:oblique;
+ position:relative;
+ text-align:center;
+ padding:2%;
+}
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+a.dead{color:DarkSlateGrey; font-style:oblique;}
+a.dead:hover{text-decoration:none; cursor:default;}
+a.dead:focus{text-decoration:none;}
+
+a.navlabel:hover{text-decoration:none; cursor:default;}
+a.navlabel:focus{text-decoration:none;}
+
+a.bld{z-index:1;position:absolute;}
+a.bld:focus{
+ opacity:1;
+ border: double thick brown;
+}
+a.bld:hover{
+ opacity:1;
+ border: double thick brown;
+}
+a.rm{position:absolute;z-index:1;}
+a.rm:focus{
+ opacity:1;
+ border: double thick cyan;
+}
+a.rm:hover{
+ opacity:1;
+ border: double thick cyan;
+}
+
+.page{
+  max-width:800px;
+  height:auto;
+  margin:auto;
+  position:relative;
+}
+
+#scrollbox{
+  position:relative;
+  width:100%;
+  max-height:800px;
+  overflow:auto;
+  border:solid black;
+  margin:auto;
+}
+
+#fp{
+  position:relative;
+  width:100%;
+}
+
+@media only screen and (max-width:800px) {
+  h1{font-size:large;}
+  .text{font-size:large;}
+  .navlabel{font-size:medium;}
+}
+@media only screen and (max-height:900px) {
+  #scrollbox{height:700px;}
+}
+@media only screen and (max-height:800px) {
+  #scrollbox{height:600px;}
+}
+
+/* end common */
+
+/* css unique to this page */
+
+#fpbox{
+  position:relative;
+  overflow:visible;
+  width:120%;
+}
+
+@media only screen and (max-width:600px){
+  h1{font-size:small;}
+  .text{font-size:small;}
+  .navlabel{font-size:x-small;}
+  button{font-size:small;}
+  @media only screen and (orientation:portrait){
+     #scrollbox{height:400px;}
+     #fpbox{width:160%;}
+     #nav{width:60%}
+   }
+  @media only screen and (orientation:landscape){
+    #scrollbox{height:225px;}
+    #fpbox{width:140%;}
+  }
+}
+
+/* dimensions and positions for all the links */
+
+a.mh1303{height:4%; width:6%; top:11%; left:36%;}
+a.mh1339{height:5.5%; width:7%; top:9.5%; right:34.3%;}
+a.mh1359{height:5.5%; width:7%; top:9.5%; right:26.3%;}
+a.mh1401{height:9.5%; width:7%; top:4.5%; right:10.5%;}
+a.mh1427{height:8.6%; width:7%; top:15%; right:10.5%;}
+a.mh1436{height:6.7%; width:7%; top:23%; right:20%;}
+a.mh1437{height:5.8%; width:7%; top:24%; right:10.5%;}
+a.mh1448{height:5.8%; width:7%; top:30%; right:20%;}
+a.mh1449{height:8.6%; width:7%; top:30%; right:10.5%;}
+a.mh1460{height:6.3%; width:7%; top:36%; right:20%;}
+a.mh1469{height:6.5%; width:7%; top:39%; right:10.5%;}
+
+</style>
+</head>
+
+<html lang="en">
+<body>
+
+<div class="page">
+<header>
+<h1>Mason Complex First Floor</h1>
+</header>
+
+<nav>
+<button type="button" id="navButt" aria-expanded="false" aria-label="select to navigate floor plans">Navigate Floor Plans</button>
+<ul id="nav" style="display:none;">
+<li class="text">
+<a href="mhg.html" aria-label="ground floor, Mason Hall">
+Ground Floor Mason</a>
+</li>
+<li class="text">
+<a class="dead" href="#!" aria-label="This link is inactive. You are on the first floor of mason hall.">This is the first floor</a>
+</li>
+<li class="text">
+<a href="mh2.html" aria-label="second floor, Mason Hall">
+Second Floor Mason</a>
+</li>
+<li class="text">
+<a href="mh3.html" aria-label="third floor, Mason Hall">
+Third Floor Mason</a>
+</li>
+<hr aria-hidden="true">
+<li class="text">
+<a href="ah1.html" aria-label="Angell Hall, first floor">
+Angell First Floor</a>
+</li>
+<li class="text">
+<a href="hh1.html" aria-label="Haven Hall. first floor">
+Haven First Floor</a>
+</li>
+<hr aria-hidden="true">
+<li class="text">
+<a href="index.html" aria-label="central campus map">
+Central Campus</a>
+</li>
+<li class="text">
+<a href="/" aria-label="M Classrooms Home Page">
+MClassrooms Home</a>
+</li>
+</ul>
+</nav>
+
+<!-- floor plan -->
+<main>
+<div id="scrollbox">
+<div id="fpbox">
+<img id="fp" src="ahplex1.jpg" alt="first floor of the angell mason haven hall complex, eleven classroom links on this drawing" />
+
+<!-- links to classroom data  -->
+
+<a class="rm mh1303" href="../classrooms/MH1303" title="to information for 1303 Mason" aria-label="room one three zero three mason hall information"></a>
+<a class="rm mh1339" href="../classrooms/MH1339" title="to information for 1339 Mason" aria-label="room one three three nine mason hall information"></a>
+<a class="rm mh1359" href="../classrooms/MH1359" title="to information for 1359 Mason" aria-label="room one three five nine mason hall information"></a>
+<a class="rm mh1401" href="../classrooms/MH1401" title="to information for 1401 Mason" aria-label="room one four zero one mason hall information"></a>
+<a class="rm mh1427" href="../classrooms/MH1427" title="to information for 1427 Mason" aria-label="room one four two seven mason hall information"></a>
+<a class="rm mh1436" href="../classrooms/MH1436" title="to information for room 1436 Mason" aria-label="room one four three six mason hall information"></a>
+<a class="rm mh1437" href="../classrooms/MH1437" title="to information for room 1437 Mason" aria-label="room one four three seven mason hall information"></a>
+<a class="rm mh1448" href="../classrooms/MH1448" title="to information for room 1448 Mason" aria-label="room one four four eight mason hall information"></a>
+<a class="rm mh1449" href="../classrooms/MH1449" title="to information for room 1449 Mason" aria-label="room one four four nine mason hall information"></a>
+<a class="rm mh1460" href="../classrooms/MH1460" title="to information for room 1460 Mason" aria-label="room one four six zero mason hall information"></a>
+<a class="rm mh1469" href="../classrooms/MH1469" title="to information for room 1469 Mason" aria-label="room one four six nine mason hall information"></a>
+
+</div>
+</div>
+</main>
+</div>
+
+</body>
+</html>
+
+<script>
+
+window.onload=function scrolldown() {
+    var elmnt = document.getElementById("scrollbox");
+    elmnt.scrollLeft = 1000;
+    elmnt.scrollTop = 0;
+}
+
+var x=document.getElementById("navButt")
+var y=document.getElementById("nav")
+x.onclick = function() {togNav()};
+
+function togNav(){
+   if(y.style.display === "none"){
+      y.style.display = "block";
+      x.setAttribute("aria-expanded", "true");
+      x.setAttribute("aria-label", "select to close navigation or use escape");
+      x.innerHTML="Close Navigation Links";
+      x.focus();
+   }else{
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+document.onkeyup = function(e){
+   if (e.key=='Escape'||e.key=='Esc'||e.keyCode==27){
+      y.style.display = "none";
+      x.innerHTML="Navigate Floor Plans";
+      x.setAttribute("aria-expanded", "false");
+      x.setAttribute("aria-label", "select to navigate floor plans");
+      x.focus();
+   }
+}
+
+</script>
+

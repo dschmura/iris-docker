@@ -1,0 +1,315 @@
+/* Classroom Styles
+/* Classrooms have location attributes as well (lat/long)
+
+@import 'application_common'
+@import 'bootstrap_and_overrides'
+
+/* Index
+#WeiserInfo
+  color: $alert
+  margin-left: 1em
+
+  &:hover
+    color: #fff
+    text-decoration: none
+
+#quick_links
+  *
+    @include rounded-corners(10px)
+    font-size: 95%
+
+#rooms_search
+  clear: both
+  overflow: hidden
+
+  #q_DEPT_GRP_eq
+    width: 175px
+
+.round
+  @include rounded-corners(8px)
+
+.content
+  .row.classroom_top
+    margin: -2em
+  .classroom_listing
+    margin: -1em
+    margin-right: -0.9em
+    margin-bottom: -28px
+    margin-top: -2em
+
+.content
+  .row.classroom_top
+    @include rounded-corners(8px)
+    overflow: hidden
+    width: auto
+
+    .tab-content
+      padding-left: 25px
+
+#carousel-nav
+  float: left
+
+#rooms_search_form
+
+  min-width: 200px
+  //background-color: #B4C3DD
+  background-color: lighten($rich_heather_blue, 20%)
+  //@include transparent($transparency: 0.8, $trans: 80)
+
+  #min-height: 675px
+  #height: 100%
+  padding: 0 0 1000px 1em
+  margin-bottom: -1000px
+  display: inline
+.classroom_index_icons
+  a
+    padding-right: 5%
+#rooms_search_instructions
+  margin-top: 1em
+  margin-bottom: 1em
+  font-size: .9em
+  color: #4C4C4C
+  font-style: oblique
+#rooms_search_instructions_extended
+  font-size: .9em
+  color: #4C4C4C
+  font-style: oblique
+  border-top: 1px solid #FFFFFF
+  display: none
+
+#rooms_results
+  margin: 0 0 0 -5%
+
+
+  height: 100%
+  background-color: lighten($rich_heather_blue, 60%)
+
+#number_of_results_selector
+  float: right
+
+#rooms_search_results_count
+  @include rounded-corners(11px)
+  background: lighten($the_rock_gray, 40%)
+  padding: 0.75em
+  margin: 1em 1em 1em 0
+  font-weight: bold
+
+.classroom_form
+  a
+    color: black
+  ul
+    li
+      list-style-type: none
+      margin-left: -3em
+
+.results_table
+  background-color: lighten($umma_tan, 60%)
+
+#contact
+  margin: 100px
+
+#building_sign
+  img
+    height: 85px
+    width: 128px
+
+#updated_on
+  float: right
+
+#attributes
+  background: #fff
+  margin-top: 1em
+  a
+    color: #191919
+  ul
+    li
+      list-style-type: none
+
+.tooltip-inner
+  font-size: 1.3em
+  color: #fff
+
+.attribute_true
+  font-weight: bold
+  display: visible
+
+.attribute_false
+  text-decoration: line-through
+  font-weight: normal
+  @include transparent($transparency: 0.5, $trans: 50)
+
+#room_number
+  @include transparent($transparency: 0.8, $trans: 80)
+  @include rounded-corners(6px)
+  visibility: visible
+  background: lighten($rich_heather_blue, 20%)
+  position: absolute
+  left: 75%
+  top: 100px
+  max-width: 225px
+  z-index: 1000
+  h1
+    margin-top: 0.5em
+    padding-left: 5px
+    padding-right: 2px
+    font-size: 1.1em
+    line-height: 1.1em
+    color: #FFF
+
+#technician_required
+  color: #800000
+  font-weight: bold
+  max-width: 95%
+
+#left
+  background-color: red
+
+#right
+  background-color: grey
+
+.legacy_panorama
+  position: relative
+  left: 12px
+  z-index: 15
+
+
+.classroom_index_thumb
+  max-height: 50px
+  height: 45px
+  max-width: 55px
+  margin-left: 0.5em
+  margin-right: 1em
+
+#maptest
+  height: 300px
+
+.row.classroom_top
+  display: block
+  overflow: hidden
+  background: lighten($umma_tan, 50%)
+  /*background: #758FC2
+  max-height: 320px
+  min-height: 300px
+  /*box-shadow: 0px 5px 5px  #B3B3B3
+
+.control-group.boolean.optional
+  margin-bottom: 0px
+
+
+.classroomTabContainer
+  width: 600
+.tabbable#classroomTabs
+  position: absolute
+  top: 331px
+  left: 65%
+  z-index: 25963
+.nav-tabs
+  background-color: #eeeeee
+#room_search_panel
+  margin: -1em
+
+  //background-color: #B4C3DD
+  background-color: #76a6c9
+
+#attributes
+  margin-bottom: 2em
+
+#contact_sheet
+  height: 300px
+  padding: .9em
+  background: lighten($the_rock_gray, 40%)
+
+  font-size: 90%
+
+  #support_info
+    margin-left: 2em
+  #scheduling_info
+    margin-left: 2em
+  #additional_contact_info
+    margin-left: 2em
+
+  hr
+    width: 85%
+    margin-bottom: 1em
+    font: normal normal normal 0.8em Arial, sans-serif
+
+#contact_me
+  background: $the_rock_gray
+  height: 300px
+
+#picture
+
+  width: auto
+  background-color: #eee
+  height: 300px
+
+
+.tab-pane
+  margin-left: -15px
+  margin-right: -30px
+
+#pano
+  min-height: 300px
+  height: 300px
+
+  z-index: 15
+
+#capacity_slider
+  max-width: 100px
+  margin-left: 2em
+
+.legacy_panorama
+  position: relative
+  left: 12px
+  z-index: 15
+
+#map
+  height: 300px
+  min-height: 300px
+  max-height: 300px
+  img
+    max-width: none
+
+#editmap
+  position: relative
+  left: 10px
+  img
+    max-width: none
+#edit_classroom_form
+  position: relative
+
+#building_float
+
+  //margin: -2.3em
+  //margin-left: -0.5em
+
+  font-size: 88%
+  z-index: 120000
+  display: hidden
+  max-height: 300px
+  height: 300px
+
+
+
+  overflow: hidden
+  img
+    margin-top: 5px
+    position: relative
+    width: 100%
+    max-height: 110px
+
+#location_image_form
+  img
+    max-width: 40%
+
+#last_updated
+  float: right
+  font-size: 85%
+/* Form
+%select
+  #classroom_location_id
+    max-width:  160px
+  #classroom_owner_id
+    max-width: 240px
+%textarea
+  max-height: 100px

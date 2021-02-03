@@ -1,0 +1,46 @@
+%h1 
+  = @page_title
+
+%table.table.table-striped
+
+  %thead
+    %tr
+      -#%th Building Code (heprod)
+      %th Code
+      %th Name
+      %th Visible?
+      %th Address
+      %th Address2
+      %th City
+      %th State
+      %th Zip
+      %th Description
+      - if user_signed_in?
+        %th
+        %th
+        %th
+  %tbody
+  - @buildings.each do |building|
+    %tr
+      %td= link_to building.building_short_code, building
+      %td= link_to building.location.name, building
+      %td= building.location.visible
+      %td= building.address
+      %td= building.address2
+      %td= building.city
+      %td= building.state
+      %td= building.zip
+      %td= building.description
+      - if user_signed_in?
+        - if current_user.admin?
+          %td= link_to 'Show', building
+          %td= link_to 'Edit', edit_building_path(building)
+          %td= link_to 'Destroy', building, :confirm => 'Are you sure?', :method => :delete
+%br
+= will_paginate
+- if user_signed_in?
+  - if current_user.admin?
+
+    = link_to 'New Building', new_building_path
+
+

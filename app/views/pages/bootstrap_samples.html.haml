@@ -1,0 +1,96 @@
+
+#myCarousel.carousel.slide
+  -# Carousel items 
+  .carousel-inner
+    .active.item
+      First
+    .item
+      Second
+    .item
+      Third
+
+  -# Carousel nav
+  %a{:class => "carousel-control left", :href => "#myCarousel", 'data-slide' => "prev" }
+    &lsaquo;
+  %a{:class => "carousel-control right", :href => "#myCarousel", 'data-slide' => "next" }  
+    &rsaquo; 
+
+      
+.btn-group
+  %button.btn
+    Button One
+  %button.btn
+    Button Two
+  %button.btn
+    Button Three
+    
+%br
+%br    
+    
+%ul.nav.nav-tabs#myTab
+  %li.active
+    %a{"data-toggle" => 'tab', :href => '#home'}
+      Home
+    
+  %li
+    %a{"data-toggle" => 'tab', :href => '#about'}
+      About
+  %li
+    %a{"data-toggle" => 'tab', :href => '#contactme'}
+      Contact
+
+.tab-content
+  .tab-pane.active#home
+    Home
+  .tab-pane#about
+    About
+  .tab-pane#contactme
+    Contact
+
+%br
+%hr
+
+.maincont.span5
+  THIS IS MAIN
+  
+.sidebar.span3
+  alskdjflakjlj ;  asldfkjlkj asdflkj l;lkjasdf  asdflkj  asd;lfkjl;kjlkj
+  
+
+
+
+%hr.span12
+.spread.span12
+  .twshare.left
+    %a.twitter-share-button.left{"data-count" => "horizontal", "data-via" => "fuonrails", :href => "http://twitter.com/share"} Tweet
+    %script{:src => "http://platform.twitter.com/widgets.js", :type => "text/javascript"}
+  .fshare.left{:style => 'padding-left: 0px; margin-left: 10px;'}
+    %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"}
+    %fb:like{:layout => "button_count", :show_faces => "false", :width => "450"}
+  .CLR
+
+%hr.span12
+
+#full_span.span12
+  #left.span3
+    Left Content
+  #middle.span3
+    Test Content
+  #right.span3
+    Right Content
+%hr
+%br
+
+
+      
+:javascript
+  $('#myTab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  })
+  
+-# Carosel
+:javascript
+  $('.carousel').carousel({
+    interval: 8000
+  })  

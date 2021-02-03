@@ -1,0 +1,234 @@
+#classroom_attributes_wrapper
+  = simple_form_for(@classroom) do |f|
+    #room_design_section.span-10
+      %h2 Room Design
+
+      #attribute_student_capacity
+        %a{:href=>"#", :class => "tip2"}
+          %b Student Capacity
+          %span 
+            Number of stations with a corresponding writing or lab surface assigned to students for instruction.  In computer labs, this includes only seats with assigned computers. Excludes instructor station and other seating types without writing surfaces. 
+        = @classroom.student_capacity
+        
+      %br
+      #attribute_blackout
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :light_control, :disabled => true
+          %span 
+            Room is either windowless or can be darkened with the use of specialized blinds for the purpose of film viewing, high resolution image viewing, etc. 
+   
+      #attribute_classroom_layout
+        Layout:
+        
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :layout_platform, :disabled => true
+          %span
+            Room provides a raised platform for the instructor.
+          
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :layout_stage, :disabled => true
+          %span
+            Room contains a stage in the front of the room.
+          
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :layout_tiered, :disabled => true
+          %span
+            Room contains a tiered or sloped floor.
+     
+      #attribute_seating
+        Seating:
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :seating_auditorium, :disabled => true
+          %span 
+            Room contains fixed chairs with tablet writing surface.
+          
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :seating_chairs_fixed, :disabled => true
+          %span 
+            Room contains fixed chairs with no table.
+          
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :seating_movable_tables_chairs, :disabled => true
+          %span 
+            Room contains movable chairs with table writing surface.
+          
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :seating_table_conference, :disabled => true
+          %span
+            Room is set up in a seminar/conference style with seats surrounding large table.
+          
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :seating_tables_any, :disabled => true
+          %span 
+            Room contains a table writing surface for students (fixed, movable, or seminar/conference).
+          
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :seating_tables_fixed, :disabled => true
+          %span 
+            Room contains fixed table writing surface for students.
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :seating_tables_moveable, :disabled => true
+          %span
+            Room has moveable table writing surface for students. Rooms w/ moveable tables should be considered fixed if: school/dept prohibits changing arrangement, tables are wired or attached so moving is not easy, or room does not allow for other arrangements.
+          
+      #attribute_sound_amplification
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :sound_amplification, :disabled => true
+          %span 
+            Room contains a sound system to amplify any of its A/V and IT components, such as computer or DVD/VCR. Room contains sound system for the purpose of amplifying the instructor voice through the use of a wired or wireless microphone.
+      #attribute_network
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :ethernet_students, :disabled => true
+          %span 
+            Room provides a hardwired ethernet connection to a portion of student seats.
+      #attribute_power_outlets
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :power_students, :disabled => true
+          %span 
+            Room contains power outlets for a portion of student seats.
+      #attribute_board
+        
+        Writing Surface:
+           
+           
+        %br
+        %br
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :writing_surface_chalkboard_any, :disabled => true
+          %span 
+            Room contains a chalkboard writing surface of any size.
+          
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :writing_surface_chalkboard_25ft, :disabled => true
+          %span 
+            Room contains a chalkboard writing surface of over 25 feet.
+          
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :writing_surface_whiteboard_any, :disabled => true
+          %span 
+            Room contains a whiteboard writing surface of any size.
+          
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :writing_surface_whiteboard_25ft, :disabled => true
+          %span 
+            Room contains a whiteboard writing surface of over 25 feet.
+          
+      #attribute_computer_lab
+       
+        Computer Classroom:
+        %a{:href=>"#", :class => "tip2"}  
+          = f.input :computer_classroom_any, :disabled => true
+          %span
+            Room contains either PC or MAC computers at each student workstation
+        #attribute_podium_computer_mac
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :computer_classroom_mac, :disabled => true
+            %span
+              Room contains Mac computers at each student workstation
+        #attribute_podium_computer_pc
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :computer_classroom_windows, :disabled => true
+            %span
+              Room contains PC computers at each student workstation
+
+
+    #equipment_section.span-10
+      %h2 Equipment
+      %hr  
+      #attribute_dvd
+        DVD Player
+        %a{:href=>"#", :class => "tip2"}  
+          = f.input :dvd_player_regular, :label => 'Standard', :disabled => true
+          %span 
+            Room contains DVD player.
+        %a{:href=>"#", :class => "tip2"}  
+          = f.input :dvd_player_blueray, :label => 'Blu-ray', :disabled => true
+          %span 
+            Room contains Blue Ray Disc player.
+      #attribute_captioning_device
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :captioning_device, :disabled => true
+          %span
+            Room contains a special device for transcribing audio into displayable captions.
+      #attribute_computer_lab.podium_computer
+        Podium Computer
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :podium_computer_any, :disabled => true
+          %span
+            Room contains any computer for use by the instructor.
+        #attribute_podium_computer_mac
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :podium_computer_mac, :disabled => true
+            %span
+     
+              Room contains a Mac computer for use by the instructor.
+        #attribute_podium_computer_pc
+          %a{:href=>"#", :class => "tip2"}
+            = f.input :podium_computer_windows, :disabled => true
+            %span
+              Room contains a PC computer for use by the instructor.
+            
+      %br
+      #attribute_doc_camera
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :document_camera, :disabled => true
+          %span
+            Room contains a specialized camera for the real-time displaying of documents, texts, or small objects.
+      
+      #attribute_interactive_pen
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :interactive_pen, :disabled => true
+          %span
+            Room contains special digital pen and writing surface for commenting/editing digital presentation.
+      #attribute_lecture_capture
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :lecture_capture, :disabled => true
+          %span
+            Room contains a lecture capture device to record instructor, digital presentation, or audio/voice. Must record voice at a minimum.
+      #attribute_telephone
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :telephone, :disabled => true
+          %span
+            Room contains a telephone.
+      #attribute_video_conferencing
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :video_conferencing, :disabled => true
+          %span
+            Room contains a special video conferencing equipment, including camera.
+      #attribute_projecters
+        Projection:
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :projection_16mm_film, :disabled => true
+          %span Room contains 16mm film projector.
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :projection_35mm_file, :disabled => true
+          %span Room contains 35mm film projector.
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :projection_digital_data_video, :disabled => true
+          %span Room contains projector or monitor to digitally display video from any of the room A/V and IT components, such as computer or DVD/VCR.
+        %a{:href=>"#", :class => "tip2"}
+          = f.input :projection_traditional_slide, :disabled => true
+          %span
+            Room contains a traditional slide projector for the display of photographic slides.
+
+    #accessibility_section.span-10.prepend-1
+      %h3
+        Accessibility 
+      %p
+        Adaptive technologies are provided by request. Please contact the Office of Services for Students with Disabilities to provide adaptive technologies to your classroom. Phone 763-3000 or email <a href="mailto:ssdoffice@umich.edu" target="_blank">ssdoffice@umich.edu</a>
+      -#
+        #attribute_assisted_listening
+          = f.input :assisted_listening, :disabled => true
+        #attribute_instructor_wheelchair_access
+          = f.input :wheelchair_instructor, :disabled => true
+        
+      #notes_section
+        #attribute_notes        
+          %h3 Notes
+          = @classroom.notes
+          %hr
+          #last_updated
+            Updated:
+            = @classroom.updated_at.strftime "%m-%d-%y %I:%M %p"  
+      
+     
