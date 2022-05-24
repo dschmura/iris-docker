@@ -39,7 +39,7 @@ gem 'pry'
 # QR-Code generation
 gem 'rqrcode-rails3'
 gem 'mini_magick'
-gem 'nokogiri', '~>1.8.1'
+gem 'nokogiri', '~>1.13.6'
 
 gem 'prawn'
 gem 'prawn-qrcode'
